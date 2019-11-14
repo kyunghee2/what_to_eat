@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('', include('restaurant.urls'), name='index'),
     path('restaurant/',include('restaurant.urls')),
     path('accounts/',include('accounts.urls')),
     path('chatbot/', include('chatbot.urls')),
