@@ -9,20 +9,17 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import get_user_model
-#from django.
-# Create your views here.
-#Authentication(인증) -> 신원 확인
 
 def signup(request):
     if request.user.is_authenticated:
-        return redirect('articles:index')
+        return redirect('restaurant:index')
 
     if request.method=='POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
-            return redirect('articles:index')
+            return redirect('restaurant:index')
     else:
         form = CustomUserCreationForm
     context ={'form':form}
@@ -30,13 +27,13 @@ def signup(request):
 
 def login(request):
     if request.user.is_authenticated:
-        return redirect('articles:index')
+        return redirect('restaurant:index')
 
     if request.method =='POST':
         form = AuthenticationForm(request,request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
-            return redirect('articles:index')
+            return redirect('restaurant:index')
     else:
         form = AuthenticationForm()
     context = {'form':form}
@@ -44,7 +41,7 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
-    return redirect('articles:index')
+    return redirect('restaurant:index')
 
 #회원정보 수정
 @login_required #로그인 회원만 접근가능
@@ -53,7 +50,7 @@ def update(request):
         form = CustomUserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('articles:index')
+            return redirect('restaurant:index')
     else:
         #form = UserChangeForm(instance=request.user)
         form = CustomUserChangeForm(instance=request.user)
@@ -69,7 +66,7 @@ def change_password(request):
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)
-            return redirect('articles:index')
+            return redirect('restaurant:index')
     else:
         form = PasswordChangeForm(request.user)
     context = {'form':form}
@@ -79,7 +76,7 @@ def change_password(request):
 @require_POST
 def delete(request):
     request.user.delete()
-    return redirect('articles:index')
+    return redirect('restaurant:index')
 
 #프로필
 def profile(request, username):
