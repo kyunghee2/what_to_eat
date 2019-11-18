@@ -7,6 +7,18 @@ $ pip install django==2.2.6
 
 $ pip install django-extensions
 $ pip install django-bootstrap4
+$ pip install pylint-django
+
 $ pip install python-decouple
 $ pip install python-telegram-bot
+```
+
+#### requirements install
+```bash
+$ pip install -r requirements.txt
+```
+
+#### db migrate
+```bash
+$ pip manage.py migrate
 ```
