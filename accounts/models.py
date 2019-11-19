@@ -6,9 +6,9 @@ from django.conf import settings
 class User(AbstractUser):
     followers = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='followings')
     
+    comp_addr = models.TextField(blank=True) #회사주소
     lunch_noti_enable = models.BooleanField(default=True) #점심알림여부
     schedule_noti_enable = models.BooleanField(default=True) #스케줄알림여부
-    comp_addr = models.TextField(blank=True) #회사주소
     chat_id =  models.CharField(max_length=100, blank=True) #user telegram chatid
         
 
