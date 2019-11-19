@@ -6,4 +6,5 @@ app_name = 'restaurant'
 
 urlpatterns = [
    path('', views.index, name='index'),
+   path('csvfilesave/',views.csvfilesave, name='csvfilesave'),
 ]
