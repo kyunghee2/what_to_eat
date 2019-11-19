@@ -32,9 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     #   User apps
-
+    'what_to_eat',
     #   Third-party apps
-
+    'django_extensions'
     #   Django apps
     'django.contrib.admin',
     'django.contrib.auth',
