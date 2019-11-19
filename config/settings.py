@@ -140,5 +140,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 #기본값: auth.User
 AUTH_USER_MODEL = 'accounts.User'
