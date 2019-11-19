@@ -20,22 +20,23 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*(%am)1%ur4fh+=n3%(8uw#b!faj!sy8+bg6#2h7=f@+n(4q7d'
+SECRET_KEY = 'fxfugd7f$(!os0yrnogui$xfh@=*(6b!(0&v(k=y5&wag4zq04'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    #   User apps
-    'what_to_eat',
-    #   Third-party apps
-    'django_extensions'
-    #   Django apps
+    'accounts',
+    'chatbot',    
+    'restaurant',
+    'bootstrap4',
+    'django_extensions',
+    'django_mysql',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +49,8 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # telegram으로 인해 주석처리
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -78,10 +80,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+SILENCED_SYSTEM_CHECKS = [
+    'django_mysql.W002',
+]
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    'default': {     
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'whattoeat',
+        'OPTIONS': {            
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+            'read_default_file': os.path.join(BASE_DIR, 'mydb.cnf'),
+        },
     }
 }
 
@@ -116,13 +132,15 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = False
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'config', 'assets')
-]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#기본값: auth.User
+AUTH_USER_MODEL = 'accounts.User'
