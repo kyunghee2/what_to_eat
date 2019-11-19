@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
+{% load gravatar %}
 
 {% block body %}
 {% if request.resolver_match.url_name == 'signup' %}
@@ -8,6 +9,8 @@
 <h1>로그인</h1>
 {% elif request.resolver_match.url_name == 'update' %}
 <h1>회원정보변경</h1>
+<hr>
+<img class="mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=200" alt="">
 {% else %}
 <h1>비밀번호변경</h1>
 {% endif %}
