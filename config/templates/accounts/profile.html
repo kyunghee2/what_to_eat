@@ -4,8 +4,9 @@
 <section class="section-welcome p-t-120 p-b-105">
 		<div class="container">
         <div class="row">
-        <h1>{{person.username}}님의 Profile</h1>
-        <hr>
+        <span><h1>마이페이지</h1><span>
+        <br>
+        <span><h1>{{person.username}}님의 Profile</h1><span>
         {% for article in person.article_set.all %}
           <div class="col-12 col-md-6 mb-3">
             <div class="card">
@@ -37,6 +38,5 @@
         {% endfor %}
         </div>
       </div>
-    </div>
 </section>
 {% endblock body %}

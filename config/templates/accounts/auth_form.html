@@ -11,9 +11,11 @@
           {% elif request.resolver_match.url_name == 'login' %}
           <h1>로그인</h1>
           {% elif request.resolver_match.url_name == 'update' %}
+          <span>
           <h1>회원정보변경</h1>
-          <hr>
-          <img class="mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=200" alt="">
+          <br>
+          <img class="rounded mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=100" alt="">
+          </span>
           {% else %}
           <h1>비밀번호변경</h1>
           {% endif %}
