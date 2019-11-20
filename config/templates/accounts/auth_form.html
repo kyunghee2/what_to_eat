@@ -6,7 +6,7 @@
 <section class="section-welcome p-t-120 p-b-105">
 		<div class="container">
       <div class="row">
-         {% if request.resolver_match.url_name == 'signup' %}
+          {% if request.resolver_match.url_name == 'signup' %}
           <h1>회원가입</h1>
           {% elif request.resolver_match.url_name == 'login' %}
           <h1>로그인</h1>
