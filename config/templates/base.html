@@ -51,7 +51,7 @@
 
 
 
-<body>
+<body class="animsition">
   {% include '_nav.html' %}
   <div class="container" >
    
@@ -60,5 +60,31 @@
   </div>
 
 {% bootstrap_javascript jquery='full' %}
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static "vendor/animsition/js/animsition.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static "vendor/bootstrap/js/popper.js" %}"></script>
+	<script type="text/javascript" src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static "vendor/select2/select2.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static "vendor/daterangepicker/moment.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "vendor/daterangepicker/daterangepicker.js" %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static "vendor/slick/slick.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/slick-custom.js" %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static "vendor/parallax100/parallax100.js" %}"></script>
+	<script type="text/javascript">
+        $('.parallax100').parallax100();
+	</script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static "vendor/countdowntime/countdowntime.js" %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static "vendor/lightbox2/js/lightbox.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "js/main.js" %}"></script>
 </body>
 </html>
