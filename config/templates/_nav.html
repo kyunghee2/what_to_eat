@@ -1,44 +1,5 @@
 {% load gravatar %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'restaurant:index' %}"><img class="rounded-circle mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=50&d=mp" alt="">&nbsp;Hello, {{user.username}}</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      {% if user.is_authenticated %}  
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'accounts:profile' user.username %}">마이페이지</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'accounts:update'%}">정보수정</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'accounts:change_password'%}">암호변경</a>
-        </li>        
-        <li class="nav-item ">
-          <a class="nav-link" href="{% url 'accounts:logout' %}">로그아웃</a>
-        </li>
-        <form action="{% url 'accounts:delete' %}" method="POST" style="display: inline;">
-          {% csrf_token %}
-          <input type="submit" value="회원탈퇴" class="btn btn-danger">
-        </form>
-      {% else %}
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'accounts:login' %}">로그인</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'accounts:signup' %}">회원가입</a>
-        </li>
-      {% endif %}
 
-     
-    </ul>
-  </div>
-</nav>
-
-
-{% comment %} 
 <!-- Header -->
 	<header>
 		<!-- Header desktop -->
@@ -47,7 +8,7 @@
 				<div class="wrap_header trans-0-3">
 					<!-- Logo -->
 					<div class="logo">
-						<a href="index.html">
+						<a href="{% url 'restaurant:index' %}">
 							<img src="images/icons/logo.png" alt="IMG-LOGO" data-logofixed="images/icons/logo2.png">
 						</a>
 					</div>
@@ -56,33 +17,33 @@
 					<div class="wrap_menu p-l-45 p-l-0-xl">
 						<nav class="menu">
 							<ul class="main_menu">
-								<li>
-									<a href="index.html">Home</a>
+							{% if user.is_authenticated %}  
+								<li >
+									<a href="{% url 'accounts:profile' user.username %}">마이페이지</a>
 								</li>
-
-								<li>
-									<a href="menu.html">Menu</a>
+								<li >
+									<a href="{% url 'accounts:update'%}">정보수정</a>
 								</li>
-
+								<li >
+									<a href="{% url 'accounts:change_password'%}">암호변경</a>
+								</li>        
 								<li>
-									<a href="reservation.html">Reservation</a>
+									<a href="{% url 'accounts:logout' %}">로그아웃</a>
 								</li>
-
 								<li>
-									<a href="gallery.html">Gallery</a>
+								<form action="{% url 'accounts:delete' %}" method="POST" style="display: inline;">
+									{% csrf_token %}
+									<input type="submit" value="회원탈퇴" class="btn btn-danger">
+								</form>
 								</li>
-
+							{% else %}
 								<li>
-									<a href="about.html">About</a>
+									<a href="{% url 'accounts:login' %}">로그인</a>
 								</li>
-
 								<li>
-									<a href="blog.html">Blog</a>
+									<a href="{% url 'accounts:signup' %}">회원가입</a>
 								</li>
-
-								<li>
-									<a href="contact.html">Contact</a>
-								</li>
+							{% endif %}
 							</ul>
 						</nav>
 					</div>
@@ -98,4 +59,4 @@
 				</div>
 			</div>
 		</div>
-	</header> {% endcomment %}
+	</header>
