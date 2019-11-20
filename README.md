@@ -24,6 +24,11 @@ $ pip install django-mysql
 $ pip install ./lib/mysqlclient-1.4.5-cp37-cp37m-win32.whl
 ```
 
+#### mysqlclient 다운로드 사이트
+- python 버전 & bit 일치하는 것 확인 후 다운로드 및 설치
+```
+https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient
+```
 
 #### db migrate
 ```bash
