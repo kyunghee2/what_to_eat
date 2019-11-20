@@ -1,4 +1,7 @@
 {% load gravatar %}
+{% load static %}
+{% load staticfiles %}
+
 
 <!-- Header -->
 <header>
@@ -8,8 +11,8 @@
 			<div class="wrap_header trans-0-3">
 				<!-- Logo -->
 				<div class="logo">
-					<a href="{% url 'restaurant:index' %}">
-						<img src="images/icons/logo.png" alt="IMG-LOGO" data-logofixed="images/icons/logo2.png">
+					<a href="{% url 'restaurant:index' %}">          
+						<img src="{% static "images/icons/logologologo.png" %}" alt="IMG-LOGO" data-logofixed="{% static "images/icons/logologologo.png" %}">
 					</a>
 				</div>
 
