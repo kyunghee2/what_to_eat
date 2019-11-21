@@ -3,9 +3,9 @@
 <div class="col-4">
   <div class="card">
     {% if  restaurant.img_path %}
-    <img src="{{restaurant.img_path.url}}" style="width:250px;">
+    <img src="{{restaurant.img_path.url}}" style="width:150px;">
     {% else %}
-    <img src="{% static 'images/avatar-03.jpg' %}">
+    <img src="{% static 'images/avatar-03.jpg' %}" style="width: 150px;">
     {% endif %}
     <h5 class="name">{{ restaurant.name }}</h5>
     <span class="type">{{ restaurant.main_menu }}</span>
