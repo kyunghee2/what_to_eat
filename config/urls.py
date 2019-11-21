@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from restaurant import views as restaurant_views
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('', restaurant_views.index, name='index'),   
     path('restaurant/',include('restaurant.urls')),
@@ -24,3 +25,8 @@ urlpatterns = [
     path('chatbot/', include('chatbot.urls')),
     path('admin/', admin.site.urls),
 ]
+
+
+
+# static()
+urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

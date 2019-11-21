@@ -144,3 +144,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 #기본값: auth.User
 AUTH_USER_MODEL = 'accounts.User'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'config', 'assets'),
+]
+# Media Files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
