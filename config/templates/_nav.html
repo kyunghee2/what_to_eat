@@ -70,7 +70,7 @@
 
 		<li class="t-center m-b-20">
 			<b>{{ user.username }}</b>
-			<img class="rounded-circle mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=60" alt="">
+			<img class="rounded-circle ml-2 mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=60" alt="">
 		</li>
 
 		<li class="t-center m-b-13">
@@ -86,9 +86,9 @@
 		</li>
 
 		<li class="t-center m-b-13">
-			<a href="{% url 'accounts:change_password'%}" class="txt19">암호변경</a>
+			<a href="{% url 'accounts:change_password'%}" class="txt19">비밀번호변경</a>
 		</li>
-
+		
 		<li class="t-center m-b-13">
 			<a href="{% url 'accounts:logout' %}" class="btn btn-info txt19">로그아웃</a>
 		</li>
