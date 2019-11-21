@@ -47,12 +47,11 @@
 					</nav>
 				</div> {% endcomment %}
 
-				<!-- Social -->
+				<!-- 이름+이미지 -->
 				<div class="social flex-w flex-l-m p-r-20">
-					<a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-facebook m-l-21" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-twitter m-l-21" aria-hidden="true"></i></a>
-
+						{% comment %} {% if user.is_authenticated %}
+							<img class="rounded-circle ml-2 mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=50" alt="">
+						{% endif %} {% endcomment %}
 					<button class="btn-show-sidebar m-l-33 trans-0-4"></button>
 				</div>
 			</div>
@@ -70,7 +69,7 @@
 
 		<li class="t-center m-b-20">
 			<b>{{ user.username }}</b>
-			<img class="rounded-circle mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=60" alt="">
+			<img class="rounded-circle ml-2 mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=60" alt="">
 		</li>
 
 		<li class="t-center m-b-13">
@@ -86,9 +85,9 @@
 		</li>
 
 		<li class="t-center m-b-13">
-			<a href="{% url 'accounts:change_password'%}" class="txt19">암호변경</a>
+			<a href="{% url 'accounts:change_password'%}" class="txt19">비밀번호변경</a>
 		</li>
-
+		
 		<li class="t-center m-b-13">
 			<a href="{% url 'accounts:logout' %}" class="btn btn-info txt19">로그아웃</a>
 		</li>

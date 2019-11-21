@@ -5,69 +5,59 @@
 {% block body %}
 
 
-	<!-- Welcome -->
-	<section class="section-welcome bg1-pattern p-t-120 p-b-105" style="padding-top:220px">
-		<div class="container">
-			<div class="row">
-				<div class="text-center">
-					{% comment %} <img src="{% static "restaurant/image/wte_logo.png" %}" alt="logo" > {% endcomment %}
+<!-- Welcome -->
+<section class="p-t-140 p-b-105">
+	<div class="container section-welcome bg1-pattern p-t-30">
+		<div class="row mt-1" >
+			<div class="col-md-6 p-t-45 p-b-30">
+				<div class="wrap-text-welcome t-center">
+					<span class="tit2 t-center">
+						What to eat today?
+					</span>
+
+					<h3 class="tit3 t-center m-b-35 m-t-5">
+						Welcome
+					</h3>
+
+					<p class="t-center m-b-22 size3 m-l-r-auto">
+						오늘 점심으로 뭐가 좋을까? 란 고민을 위해 <b>환상의 점심을 소개할게요</b>
+					</p>
+
+					<form class="mb-4" action="">
+						<div class="form-row justify-content-end">
+							<div class="col-12 col-sm-9 col-md-10">
+								<input type="text" name="query" class="form-control" placeholder="검색어를 입력해주세요">
+							</div>
+							<div class="col-3 col-sm-3 col-md-2">
+								<input type="submit" class="form-control btn btn-secondary" value="검색">
+							</div>
+						</div>
+					</form>
+
+
 				</div>
-
-				<form action="" method="POST"> 
-					{% csrf_token %} 
-					
-				</form> 
-
 			</div>
-			<div class="row" margin-top: 1px>
-				<div class="col-md-6 p-t-45 p-b-30">
-					<div class="wrap-text-welcome t-center">
-						<span class="tit2 t-center">
-							What to eat today?
-						</span>
 
-						<h3 class="tit3 t-center m-b-35 m-t-5">
-							Welcome
-						</h3>
-
-						<p class="t-center m-b-22 size3 m-l-r-auto">
-							오늘 점심으로 뭐가 좋을까? 란 고민을 위해	<b>환상의 점심을 소개할게요</b>
-						</p>
-
-						<form class="mb-4" action = "">
-  <div class="form-row justify-content-end">
-    <div class="col-12 col-sm-9 col-md-10">
-      <input type="text" name="query" class="form-control" placeholder="검색어를 입력해주세요">
-    </div>
-    <div class="col-3 col-sm-3 col-md-2">
-      <input type="submit" class="form-control btn btn-secondary" value="검색">
-    </div>
-  </div>
-</form>
-
-
-					</div>
-				</div>
-
-				<div class="col-md-6 p-b-30">
-					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-						<img src= "{% static "images/crazyfry.png" %}" alt="IMG-OUR">
-					</div>
+			<div class="col-md-6 p-b-30">
+				<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+					<img src="{% static "images/crazyfry.png" %}" alt="IMG-OUR">
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
-	<!-- Intro -->
-	<section class="section-intro">
-		<div class="header-intro parallax100 t-center p-t-135 p-b-158" style="background-image: {% static "images/bg-intro-01.jpg" %}">
-			{% comment %} <span class="tit2 p-l-15 p-r-15">
-				Discover
-			</span> {% endcomment %}
+<!-- Intro -->
+<section class="section-intro">
+	<div class="header-intro parallax100 t-center p-t-135 p-b-158"
+		style="background-image: {% static "images/bg-intro-01.jpg" %}">
+		{% comment %} <span class="tit2 p-l-15 p-r-15">
+			Discover
+		</span> {% endcomment %}
 
 
 		<div class="content-intro bg-white p-t-77 p-b-133">
-			<div class="container"  >
+			<div class="container">
 				<div class="row">
 					<div class="col-md-4 p-t-30">
 						<!-- Block1 -->
@@ -77,9 +67,11 @@
 							</div>
 
 							<div class="wrap-text-blo1 p-t-35">
-								<a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-									Romantic Restaurant
-								</h4></a>
+								<a href="#">
+									<h4 class="txt5 color0-hov trans-0-4 m-b-13">
+										Romantic Restaurant
+									</h4>
+								</a>
 
 								<p class="m-b-20">
 									Phasellus lorem enim, luctus ut velit eget, con-vallis egestas eros.
@@ -97,14 +89,15 @@
 						<!-- Block1 -->
 						<div class="blo1">
 							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-								<a href="#"><img src=
-'{% static "images/intro-02.jpg" %}' alt="IMG-INTRO"></a>
+								<a href="#"><img src='{% static "images/intro-02.jpg" %}' alt="IMG-INTRO"></a>
 							</div>
 
 							<div class="wrap-text-blo1 p-t-35">
-								<a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-									Delicious Food
-								</h4></a>
+								<a href="#">
+									<h4 class="txt5 color0-hov trans-0-4 m-b-13">
+										Delicious Food
+									</h4>
+								</a>
 
 								<p class="m-b-20">
 									Aliquam eget aliquam magna, quis posuere risus ac justo ipsum nibh urna
@@ -126,9 +119,11 @@
 							</div>
 
 							<div class="wrap-text-blo1 p-t-35">
-								<a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-									Red Wines You Love
-								</h4></a>
+								<a href="#">
+									<h4 class="txt5 color0-hov trans-0-4 m-b-13">
+										Red Wines You Love
+									</h4>
+								</a>
 
 								<p class="m-b-20">
 									Sed ornare ligula eget tortor tempor, quis porta tellus dictum.
@@ -145,116 +140,116 @@
 				</div>
 			</div>
 		</div>
-	</section>
+</section>
 
 
-	<!-- Review -->
-	<section class="section-review p-t-115">
-		<!-- - -->
-		<div class="title-review t-center m-b-2">
-			<span class="tit2 p-l-15 p-r-15">
-				Developer's Say
-			</span>
+<!-- Review -->
+<section class="section-review p-t-115">
+	<!-- - -->
+	<div class="title-review t-center m-b-2">
+		<span class="tit2 p-l-15 p-r-15">
+			Developer's Say
+		</span>
 
-			<h3 class="tit8 t-center p-l-20 p-r-15 p-t-3">
-				Review
-			</h3>
-		</div>
+		<h3 class="tit8 t-center p-l-20 p-r-15 p-t-3">
+			Review
+		</h3>
+	</div>
 
-		<!-- - -->
-		<div class="wrap-slick3">
-			<div class="slick3">
-				<div class="item-slick3 item1-slick3">
-					<div class="wrap-content-slide3 p-b-50 p-t-50">
-						<div class="container">
-							<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
-								<img src=
-'{% static "images/avatar-dohyun.jpg" %}' alt="IGM-AVATAR">
+	<!-- - -->
+	<div class="wrap-slick3">
+		<div class="slick3">
+			<div class="item-slick3 item1-slick3">
+				<div class="wrap-content-slide3 p-b-50 p-t-50">
+					<div class="container">
+						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
+							<img src='{% static "images/avatar-dohyun.jpg" %}' alt="IGM-AVATAR">
+						</div>
+
+						<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
+							<p class="t-center txt12 size15 m-l-r-auto">
+								“ 순남시래기 내 인생맛집 ㅎㅎ 니들이 전통 100년의 국밥 맛을 알아??? ”
+							</p>
+
+							<div class="star-review fs-18 color0 flex-c-m m-t-12">
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
 							</div>
 
-							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
-								<p class="t-center txt12 size15 m-l-r-auto">
-									“ 순남시래기 내 인생맛집 ㅎㅎ 니들이 전통 100년의 국밥 맛을 알아??? ”
-								</p>
-
-								<div class="star-review fs-18 color0 flex-c-m m-t-12">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								</div>
-
-								<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
-									Dohyun gukbap is the love ˗ Dongtan
-								</div>
+							<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
+								Dohyun gukbap is the love ˗ Dongtan
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="item-slick3 item2-slick3">
-					<div class="wrap-content-slide3 p-b-50 p-t-50">
-						<div class="container">
-							<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
-								<img src='{% static "images/avatar-sehwan.jpg" %}' alt="IGM-AVATAR">
-							</div>
-
-							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
-								<p class="t-center txt12 size15 m-l-r-auto">
-									“ 옴뇸뇸 옴뇸뇸 옴뇸뇸 ”
-								</p>
-
-								<div class="star-review fs-18 color0 flex-c-m m-t-12">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								</div>
-
-								<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
-									Marie Simmons ˗ New York
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick3 item3-slick3">
-					<div class="wrap-content-slide3 p-b-50 p-t-50">
-						<div class="container">
-							<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
-								<img src=
-'{% static "images/avatar-05.jpg" %}' alt="IGM-AVATAR">
-							</div>
-
-							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
-								<p class="t-center txt12 size15 m-l-r-auto">
-									“ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem, mattis in pre-tium nec, fermentum viverra dui ”
-								</p>
-
-								<div class="star-review fs-18 color0 flex-c-m m-t-12">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								</div>
-
-								<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
-									Marie Simmons ˗ New York
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
 			</div>
 
-			<div class="wrap-slick3-dots m-t-30"></div>
+			<div class="item-slick3 item2-slick3">
+				<div class="wrap-content-slide3 p-b-50 p-t-50">
+					<div class="container">
+						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
+							<img src='{% static "images/avatar-sehwan.jpg" %}' alt="IGM-AVATAR">
+						</div>
+
+						<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
+							<p class="t-center txt12 size15 m-l-r-auto">
+								“ 옴뇸뇸 옴뇸뇸 옴뇸뇸 ”
+							</p>
+
+							<div class="star-review fs-18 color0 flex-c-m m-t-12">
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+							</div>
+
+							<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
+								Marie Simmons ˗ New York
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="item-slick3 item3-slick3">
+				<div class="wrap-content-slide3 p-b-50 p-t-50">
+					<div class="container">
+						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
+							<img src='{% static "images/avatar-05.jpg" %}' alt="IGM-AVATAR">
+						</div>
+
+						<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
+							<p class="t-center txt12 size15 m-l-r-auto">
+								“ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem, mattis in pre-tium
+								nec, fermentum viverra dui ”
+							</p>
+
+							<div class="star-review fs-18 color0 flex-c-m m-t-12">
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+							</div>
+
+							<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
+								Marie Simmons ˗ New York
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
-	</section>
+
+		<div class="wrap-slick3-dots m-t-30"></div>
+	</div>
+</section>
 
 {% endblock body %}
+
 </html>
