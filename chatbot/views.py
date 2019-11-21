@@ -5,6 +5,7 @@ import random
 import telegram
 import json
 from restaurant.models import Restaurant
+from accounts.models import Telegram
 from django.views.decorators.http import require_POST
 
 api_url = 'https://api.telegram.org'
@@ -42,6 +43,13 @@ def telegram_chatbot(request,token_in):
             sendtext +="* 알림해제 방법은? /알림해제 \n"
             sendtext +="* 도움말? /help"
             bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
+
+            #사용자 정보 없는 경우만 저장
+            telegrams = Telegram.objects.filter(chat_id=chat_id)            
+            if telegrams.exists==false :
+                telegram = Telegram(chat_id=chat_id)
+                telegram.save()
+
         elif '/help' in text:
             sendtext ="* 맛집검색 방법은? /맛집 한식 \n"
             sendtext +="  (종류:한식,양식,중식,일식,분식)\n"
