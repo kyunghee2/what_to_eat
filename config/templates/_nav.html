@@ -11,52 +11,47 @@
 			<div class="wrap_header trans-0-3">
 				<!-- Logo -->
 				<div class="logo">
-					<a href="{% url 'restaurant:index' %}">          
-						<img src="{% static "images/icons/logologologo.png" %}" alt="IMG-LOGO" data-logofixed="{% static "images/icons/logologologo.png" %}">
+					<a href="{% url 'restaurant:index' %}">
+						<img src="{% static "images/icons/logologologo.png" %}" alt="IMG-LOGO"
+							data-logofixed="{% static "images/icons/logologologo.png" %}">
 					</a>
 				</div>
 
-				<!-- Menu -->
+				{% comment %} <!-- Menu -->
 				<div class="wrap_menu p-l-45 p-l-0-xl">
 					<nav class="menu">
 						<ul class="main_menu">
-						{% if user.is_authenticated %}  
-							<li >
+							{% if user.is_authenticated %}
+							<li>
 								<a href="{% url 'accounts:profile' user.username %}">마이페이지</a>
 							</li>
-							<li >
+							<li>
 								<a href="{% url 'accounts:update'%}">정보수정</a>
 							</li>
-							<li >
+							<li>
 								<a href="{% url 'accounts:change_password'%}">암호변경</a>
-							</li>        
+							</li>
 							<li>
 								<a href="{% url 'accounts:logout' %}">로그아웃</a>
 							</li>
+
+							{% else %}
 							<li>
-							<form action="{% url 'accounts:delete' %}" method="POST" style="display: inline;">
-								{% csrf_token %}
-								<input type="submit" value="회원탈퇴" class="btn btn-danger">
-							</form>
-							</li>
-						{% else %}
-							<li>
-								<a href="{% url 'accounts:login' %}">로그인</a>
+								<a href="{% url 'accounts:login' %}">LOGIN</a>
 							</li>
 							<li>
-								<a href="{% url 'accounts:signup' %}">회원가입</a>
+								<a href="{% url 'accounts:signup' %}">SIGN UP</a>
 							</li>
-						{% endif %}
+							{% endif %}
 						</ul>
 					</nav>
-				</div>
+				</div> {% endcomment %}
 
-				<!-- Social -->
+				<!-- 이름+이미지 -->
 				<div class="social flex-w flex-l-m p-r-20">
-					<a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-facebook m-l-21" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-twitter m-l-21" aria-hidden="true"></i></a>
-
+						{% comment %} {% if user.is_authenticated %}
+							<img class="rounded-circle ml-2 mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=50" alt="">
+						{% endif %} {% endcomment %}
 					<button class="btn-show-sidebar m-l-33 trans-0-4"></button>
 				</div>
 			</div>
@@ -65,42 +60,62 @@
 </header>
 <!--sidebar start-->
 <aside class="sidebar trans-0-4 ">
-		<!-- Button Hide sidebar -->
-		<button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
+	<!-- Button Hide sidebar -->
+	<button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
 
-		<ul class="menu-sidebar p-t-95 p-b-70">
-			<li class="t-center m-b-13">
-				<a href="index.html" class="txt19">Home</a>
-			</li>
+	<ul class="menu-sidebar p-t-95 p-b-70">
 
-			<li class="t-center m-b-13">
-				<a href="menu.html" class="txt19">Menu</a>
-			</li>
+		{% if user.is_authenticated %}
 
-			<li class="t-center m-b-13">
-				<a href="gallery.html" class="txt19">Gallery</a>
-			</li>
+		<li class="t-center m-b-20">
+			<b>{{ user.username }}</b>
+			<img class="rounded-circle ml-2 mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=60" alt="">
+		</li>
 
-			<li class="t-center m-b-13">
-				<a href="about.html" class="txt19">About</a>
-			</li>
+		<li class="t-center m-b-13">
+			<a href="{% url 'restaurant:index' %}" class="txt19">홈으로</a>
+		</li>
 
-			<li class="t-center m-b-13">
-				<a href="blog.html" class="txt19">Blog</a>
-			</li>
+		<li class="t-center m-b-13">
+			<a href="{% url 'accounts:profile' user.username %}" class="txt19">마이페이지</a>
+		</li>
 
-			<li class="t-center m-b-33">
-				<a href="contact.html" class="txt19">Contact</a>
-			</li>
+		<li class="t-center m-b-13">
+			<a href="{% url 'accounts:update'%}" class="txt19">정보수정</a>
+		</li>
 
-			<li class="t-center">
-				<!-- Button3 -->
-				<a href="reservation.html" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
-					Reservation
-				</a>
-			</li>
-		</ul>
+		<li class="t-center m-b-13">
+			<a href="{% url 'accounts:change_password'%}" class="txt19">비밀번호변경</a>
+		</li>
+		
+		<li class="t-center m-b-13">
+			<a href="{% url 'accounts:logout' %}" class="btn btn-info txt19">로그아웃</a>
+		</li>
+
+		<li class="t-center m-b-13">
+			<form action="{% url 'accounts:delete' %}" method="POST" style="display: inline;">
+				{% csrf_token %}
+				<input type="submit" value="회원탈퇴" class="btn btn-danger txt19">
+			</form>
+		</li>
+
+		{% else %}
+		<li class="t-center m-b-13">
+			<a href="{% url 'accounts:login' %}" class="txt19">로그인</a>
+		</li>
+		<li class="t-center m-b-13">
+			<a href="{% url 'accounts:signup' %}" class="txt19">회원가입</a>
+		</li>
+		{% endif %}
+
+		{% comment %} <li class="t-center">
+			<!-- Button3 -->
+			<a href="reservation.html" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
+				Reservation
+			</a>
+		</li> {% endcomment %}
+	</ul>
 
 
-	</aside>
+</aside>
 <!--sidebar end-->
