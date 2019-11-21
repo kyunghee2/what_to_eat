@@ -55,10 +55,10 @@ def telegram_chatbot(request,token_in):
                 restaurants = Restaurant.objects.filter(r_type=r_type)
                 sel_obj = random.choice(restaurants)
 
-                sendtext = " 오늘 점심 [{0}] 음식점 추천해드립니다. \n"
+                sendtext = " 오늘 점심 [{0}] 음식점 추천해드립니다. \n\n"
                 sendtext += "메인메뉴: {1} \n"
-                sendtext += "주소: {2} \n"
-                sendtext += "<a href='https://map.kakao.com/?q={3}'>길찾기 바로가기</a>\n"
+                sendtext += "주소: {2} "
+                sendtext += "(<a href='https://map.kakao.com/?q={3}'>길찾기 바로가기</a>)\n"
                 sendtext += "그외 메뉴(가격):\n"
                 sendtext += "<pre>{4}</pre>"
                 sendtext = sendtext.format(sel_obj.name,sel_obj.main_menu, sel_obj.addr, sel_obj.addr, sel_obj.content)
