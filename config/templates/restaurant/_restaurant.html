@@ -5,7 +5,7 @@
     {% if  restaurant.img_path %}
     <img src="{{restaurant.img_path.url}}" style="width:150px;">
     {% else %}
-    <img src="{% static 'images/avatar-03.jpg' %}" style="width: 150px;">
+    <img src="{% static 'images/no-image.png' %}" style="width: 150px;">
     {% endif %}
     <h5 class="name">{{ restaurant.name }}</h5>
     <span class="type">{{ restaurant.main_menu }}</span>

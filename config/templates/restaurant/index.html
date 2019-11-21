@@ -4,9 +4,8 @@
 
 {% block body %}
 
-
 <!-- Welcome -->
-<section class="p-t-140 p-b-105">
+<section class="p-t-140">
 	<div class="container section-welcome bg1-pattern p-t-30">
 		<div class="row mt-1">
 			<div class="col-md-6 p-t-45 p-b-30">
@@ -14,15 +13,12 @@
 					<span class="tit2 t-center">
 						What to eat today?
 					</span>
-
 					<h3 class="tit3 t-center m-b-35 m-t-5">
 						Welcome
 					</h3>
-
 					<p class="t-center m-b-22 size3 m-l-r-auto">
 						오늘 점심으로 뭐가 좋을까? 란 고민을 위해 <b>환상의 점심을 소개할게요</b>
 					</p>
-
 					<form class="mb-4" action="{% url 'restaurant:query' %}">
 						<div class="form-row justify-content-end">
 							<div class="col-12 col-sm-9 col-md-10">
@@ -34,17 +30,10 @@
 						</div>
 					</form>
 
-					<!-- 검색창 다른거 -->
-					{% comment %} <div class="search-sidebar2 size12 bo2 pos-relative">
-						<input class="input-search-sidebar2 txt10 p-l-20 p-r-55" type="text" name="search" placeholder="Search">
-						<button class="btn-search-sidebar2 flex-c-m ti-search trans-0-4"></button>
-					</div> {% endcomment %}
-
-
 				</div>
 			</div>
 
-			<div class="col-md-6 p-b-30">
+			<div class="col-md-6">
 				<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
 					<img src="{% static "images/crazyfry.png" %}" alt="IMG-OUR">
 				</div>
