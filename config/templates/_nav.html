@@ -17,7 +17,7 @@
 				</div>
 
 				<!-- Menu -->
-				<div class="wrap_menu p-l-45 p-l-0-xl">
+				<div class="wrap_menu p-l-45 p-l-0-xl" >
 					<nav class="menu">
 						<ul class="main_menu">
 						{% if user.is_authenticated %}  
@@ -41,10 +41,10 @@
 							</li>
 						{% else %}
 							<li>
-								<a href="{% url 'accounts:login' %}">로그인</a>
+								<a href="{% url 'accounts:login' %}">LOGIN</a>
 							</li>
 							<li>
-								<a href="{% url 'accounts:signup' %}">회원가입</a>
+								<a href="{% url 'accounts:signup' %}">SIGN UP</a>
 							</li>
 						{% endif %}
 						</ul>

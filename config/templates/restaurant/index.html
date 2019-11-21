@@ -6,7 +6,7 @@
 
 
 	<!-- Welcome -->
-	<section class="section-welcome bg1-pattern p-t-120 p-b-105">
+	<section class="section-welcome bg1-pattern p-t-120 p-b-105" style="padding-top:220px">
 		<div class="container">
 			<div class="row">
 				<div class="text-center">
@@ -19,7 +19,7 @@
 				</form> 
 
 			</div>
-			<div class="row">
+			<div class="row" margin-top: 1px>
 				<div class="col-md-6 p-t-45 p-b-30">
 					<div class="wrap-text-welcome t-center">
 						<span class="tit2 t-center">
@@ -40,7 +40,7 @@
       <input type="text" name="query" class="form-control" placeholder="검색어를 입력해주세요">
     </div>
     <div class="col-3 col-sm-3 col-md-2">
-      <input type="submit" class="form-control btn btn-success" value="검색">
+      <input type="submit" class="form-control btn btn-secondary" value="검색">
     </div>
   </div>
 </form>
@@ -60,18 +60,14 @@
 
 	<!-- Intro -->
 	<section class="section-intro">
-		<div class="header-intro parallax100 t-center p-t-135 p-b-158" style="background-image: url(images/bg-intro-01.jpg);">
+		<div class="header-intro parallax100 t-center p-t-135 p-b-158" style="background-image: {% static "images/bg-intro-01.jpg" %}">
 			{% comment %} <span class="tit2 p-l-15 p-r-15">
 				Discover
 			</span> {% endcomment %}
 
-			<h3 class="tit4 t-center p-l-15 p-r-15 p-t-3">
-				Pato Place
-			</h3>
-		</div>
 
 		<div class="content-intro bg-white p-t-77 p-b-133">
-			<div class="container">
+			<div class="container"  >
 				<div class="row">
 					<div class="col-md-4 p-t-30">
 						<!-- Block1 -->
