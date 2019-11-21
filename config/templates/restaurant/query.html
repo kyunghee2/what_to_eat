@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+{% block body %}
+<section class="section-welcome p-t-120 p-b-105">
+  <div class="container">
+    <div class="row">
+      {% for restaurant in restaurants %}
+      {% include 'restaurant/_restaurant.html' %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% load static %}
+{% static "" as baseUrl  %}
+
+<div class="col-4">
+  <div class="card">
+    {% if  restaurant.img_path %}
+    <img src="{{ baseUrl }}/images/{{ restaurant.img_path  }}">
+    {% else %}
+    <img src="{{ baseUrl }}/images/avatar-03.jpg">
+    {% endif %}
+    <h5 class="name">{{ restaurant.name }}</h5>
+    <span class="type">{{ restaurant.main_menu }}</span>
+    <span class="address">{{ restaurant.addr }}</span>
+  </div>
+</div>

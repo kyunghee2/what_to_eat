@@ -1,12 +1,19 @@
 from django.shortcuts import render
+from .models import Restaurant
 # import csv
-# from .models import Restaurant
 
 
 # Create your views here.
 def index(request):
     return render(request, 'restaurant/index.html' )
-    
+
+def query(request):
+    query = request.GET.get('query')
+    restaurants = Restaurant.objects.filter(name__icontains=query)
+    context = {
+        'restaurants': restaurants
+    }
+    return render(request, 'restaurant/query.html', context)
 
 # def csvfilesave(request):
 #     with open('whattoeat_db.csv', newline='', encoding='UTF8') as csvfile:

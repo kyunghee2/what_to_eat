@@ -23,7 +23,7 @@
 						오늘 점심으로 뭐가 좋을까? 란 고민을 위해 <b>환상의 점심을 소개할게요</b>
 					</p>
 
-					<form class="mb-4" action="">
+					<form class="mb-4" action="{% url 'restaurant:query' %}">
 						<div class="form-row justify-content-end">
 							<div class="col-12 col-sm-9 col-md-10">
 								<input type="text" name="query" class="form-control" placeholder="검색어를 입력해주세요">
