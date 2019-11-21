@@ -69,8 +69,14 @@
 		<button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
 
 		<ul class="menu-sidebar p-t-95 p-b-70">
+
+			<li class="t-center m-b-20">
+				<b>{{ user.username }}</b>
+				<img class="rounded-circle mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=60" alt="">
+			</li>
+
 			<li class="t-center m-b-13">
-				<a href="index.html" class="txt19">Home</a>
+				<a href="{% url 'restaurant:index' %}" class="txt19">Home</a>
 			</li>
 
 			<li class="t-center m-b-13">
