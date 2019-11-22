@@ -9,7 +9,10 @@ def index(request):
 
 def query(request):
     query = request.GET.get('query')
-    restaurants = Restaurant.objects.filter(name__icontains=query)
+    restaurants = set(Restaurant.objects.filter(name__icontains=query))
+    restaurants.update(set(Restaurant.objects.filter(r_type__icontains=query)))
+    restaurants.update(set(Restaurant.objects.filter(addr__icontains=query)))
+    restaurants.update(set(Restaurant.objects.filter(main_menu__icontains=query)))
     context = {
         'restaurants': restaurants
     }

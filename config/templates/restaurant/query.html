@@ -5,7 +5,7 @@
 {% block body %}
 <section class="section-welcome p-t-120 p-b-105">
   <div class="container">
-    <form class="mb-4" action="">
+    <form name="queryForm" class="mb-4" action="" required onsubmit="return checkBlank()">
 						<div class="form-row justify-content-end">
 							<div class="col-12 col-sm-9 col-md-10">
 								<input type="text" name="query" class="form-control" placeholder="검색어를 입력해주세요">

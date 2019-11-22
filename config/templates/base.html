@@ -34,6 +34,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/whattoeat.css" %}">
 <!--===============================================================================================-->
 
   <meta charset="UTF-8">
@@ -86,5 +87,14 @@
 	<script type="text/javascript" src="{% static "vendor/lightbox2/js/lightbox.min.js" %}"></script>
 <!--===============================================================================================-->
 	<script src="{% static "js/main.js" %}"></script>
+	<script>
+		function checkBlank() {
+			var x = document.forms["queryForm"]["query"].value;
+			if(x == "") {
+				alert("검색어를 입력해주세요");
+				return false;
+			}
+		}
+	</script>
 </body>
 </html>
