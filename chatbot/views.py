@@ -68,27 +68,22 @@ def telegram_chatbot(request,token_in):
         if '/start' in text:
             print('start')
             sendtext = "환영합니다 !\n"
-            sendtext += "뭐먹을까 봇 입니다\n"
-            sendtext += "점심에 맛집 정보를 추천해드립니다.\n"
+            sendtext += "뭐먹을까 ChatBot 입니다\n"
+            sendtext += "점심시간에 맛집 정보를 추천하고 맛집 검색 서비스를 해드립니다.\n"
             sendtext += "(현재 역삼동만 서비스하고 있습니다)\n"
-            #sendtext += " <a href=''>가입하기</a> "
             bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
 
-            sendtext ="* 맛집검색 방법은? /맛집 한식 \n"
-            sendtext +="* 알림해제 방법은? /알림해제 \n"
-            sendtext +="* 도움말? /help"
+            sendtext = message_create('help')
             bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
 
-            #사용자 정보 없는 경우만 저장
+            #알림 사용자 정보 없는 경우만 저장
             telegrams = Telegram.objects.filter(chat_id=chat_id)                     
             if telegrams.count() == 0 :
                 telegram = Telegram(chat_id=chat_id)
                 telegram.save()
 
         elif '/help' in text:
-            sendtext ="* 맛집검색 방법은? /맛집 한식 \n"
-            sendtext +="  (종류:한식,양식,중식,일식,분식)\n"
-            sendtext +="* 알림해제 방법은? /알림해제 \n"
+            sendtext = message_create('help')
             bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
 
         elif '/맛집' in text:
@@ -107,7 +102,17 @@ def telegram_chatbot(request,token_in):
                 sendtext = sendtext.format(sel_obj.name,sel_obj.main_menu, sel_obj.addr, sel_obj.addr, sel_obj.content)
 
                 bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
+        elif '/알림설정' in text:
+            telegrams = Telegram.objects.filter(chat_id=chat_id)                     
+            if telegrams.count() == 0 :
+                telegram = Telegram(chat_id=chat_id)
+                telegram.save()
 
+        elif '/알림해제' in text:
+            telegrams = Telegram.objects.filter(chat_id=chat_id)                     
+            if telegrams.count() > 0 :
+                telegram = Telegram.objects.get(chat_id=chat_id)
+                telegram.delete()
         else:
             pass
             # bot.send_photo(chat_id=chat_id, photo='https://telegram.org/img/t_logo.png')
@@ -118,3 +123,14 @@ def telegram_chatbot(request,token_in):
   
    
     return render(request, 'chatbot/index.html' )
+
+def message_create(msg_type):
+    result = ''
+    if msg_type == 'help':
+        result ="* 맛집검색 방법은? /맛집 한식 \n"
+        result +="  (종류:한식,양식,중식,일식,분식)\n"
+        result +="* 알림해제 방법은? /알림해제 \n"
+        result +="* 알림설정 방법은? /알림설정 \n"
+
+    return result
+
