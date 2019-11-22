@@ -15,8 +15,12 @@ def search(request):
     }
     return render(request, 'restaurant/search.html', context)
 
-def detail(request, restaurant_pk):
-    pass
+# def detail(request, restaurant_pk):
+
+#     pass
+
+def detail(request):
+    return render(request, 'restaurant/detail.html')
 
 # def csvfilesave(request):
 #     with open('whattoeat_db.csv', newline='', encoding='UTF8') as csvfile:
