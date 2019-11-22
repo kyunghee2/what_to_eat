@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load staticfiles %}
+{% load bootstrap4 %}
 
 {% block body %}
 
-	<!-- Title Page -->
-	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(images/bg-title-page-03.jpg); >
+	<!-- Title Page --><!--url(restaurant/images/bg-title-page-03.jpg);-->
+	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image:"{% static "images/bg-title-page-03.jpg" %} " " >
 		<h2 class="tit6 t-center">
-			Detail
+			DETAIL
 		</h2>
 	</section>
-{% comment %} "{% static "images/bg-title-page-03.jpg" %}" {% endcomment %}
 
 		<div class="container">
 			<div class="row ">
@@ -21,16 +21,12 @@
 							<!-- - -->
 							<div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
 								<a href="blog-detail.html">
-									<img src="images/blog-05.jpg" alt="IMG-BLOG">
+									<img src="{% static "images/본죽본비빔밥.png" %}"   alt="IMG-BLOG">
 								</a>
 
 								<div class="date-blo4 flex-col-c-m">
 									<span class="txt30 m-b-4">
 										28
-									</span>
-
-									<span class="txt31">
-										Dec, 2018
 									</span>
 								</div>
 							</div>
@@ -68,28 +64,40 @@
 							</div>
 						</div>
 
+						{% if user.is_authenticated %}
+
 						<!-- Leave a comment -->
-						<form class="leave-comment p-t-10">
-							<h4 class="txt33 p-b-14">
-								Leave a Comment
+						 <h4 class="txt33 p-b-14">
+							Leave a Comment
 							</h4>
+						 <form action="" class="leave-comment p-t-10" method="POST">						
+  						{% csrf_token %}					
+							
+							<fieldset class="rating">
+   					 	<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+							<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+							<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+							<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+							<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+							<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+							<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+							<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+							<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+							<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+							</fieldset>
 
-							<p>
-								Your email address will not be published. Required fields are marked *
-							</p>
-
-							<textarea class="bo-rad-10 size29 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-40" name="commentent" placeholder="Comment..."></textarea>
-
-							<div class="size30 bo2 bo-rad-10 m-t-3 m-b-20">
-								<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Name *">
-							</div>
-
-
+							<textarea class="bo-rad-5 size29 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-40 " name="commentent" placeholder="Comment..."></textarea>  						
+   					  <input type="submit" value="댓글작성" name="comment"  class="btn btn-secondary" style="display:inline">
+							</form>
+						
+{% comment %} 						
 							<!-- Button3 -->
 							<button type="submit" class="btn3 flex-c-m size31 txt11 trans-0-4">
 								Post Comment
-							</button>
-						</form>
+							</button>  {% endcomment %}
+						{% else %}
+						<a href = "{% url 'accounts:login' %}"> [댓글 작성하려면 로그인하세요] </a>
+						{% endif %}
 					</div>
 				</div>
 
@@ -110,20 +118,13 @@
 							<ul>
 								<li class="bo5-b p-t-8 p-b-8">
 									<a href="#" class="txt27">
+										BACK
+									</a>
+								</li>
+
+								<li class="bo5-b p-t-8 p-b-8">
+									<a href="#" class="txt27">
 										INDEX
-									</a>
-								</li>
-
-								<li class="bo5-b p-t-8 p-b-8">
-									<a href="#" class="txt27">
-										Delicious foods
-									</a>
-								</li>
-
-
-								<li class="bo5-b p-t-8 p-b-8">
-									<a href="#" class="txt27">
-										WordPress
 									</a>
 								</li>
 							</ul>
