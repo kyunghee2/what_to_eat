@@ -20,6 +20,7 @@ class Restaurant(models.Model):
 
 class Comment(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    score = models.FloatField(null=True, blank=True)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

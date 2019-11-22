@@ -19,7 +19,7 @@ from restaurant import views as restaurant_views
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
-    path('', restaurant_views.index, name='index'),   
+    path('', restaurant_views.index, name='index'),       
     path('restaurant/',include('restaurant.urls')),
     path('accounts/',include('accounts.urls')),
     path('chatbot/', include('chatbot.urls')),
