@@ -19,10 +19,10 @@
 					<p class="t-center m-b-22 size3 m-l-r-auto">
 						오늘 점심으로 뭐가 좋을까? 란 고민을 위해 <b>환상의 점심을 소개할게요</b>
 					</p>
-					<form class="mb-4" action="{% url 'restaurant:query' %}">
+					<form class="mb-4" action="{% url 'restaurant:search' %}">
 						<div class="form-row justify-content-end">
 							<div class="col-12 col-sm-9 col-md-10">
-								<input type="text" name="query" class="form-control" placeholder="검색어를 입력해주세요">
+								<input type="text" name="search" class="form-control" placeholder="검색어를 입력해주세요">
 							</div>
 							<div class="col-3 col-sm-3 col-md-2">
 								<input type="submit" class="form-control btn btn-secondary" value="검색">

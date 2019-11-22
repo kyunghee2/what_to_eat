@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+{% block body %}
+<section class="section-welcome p-t-120 p-b-105">
+	<div class="container">
+		<form class="mb-4" action="">
+			<div class="form-row justify-content-end">
+				<!-- Search -->
+				<div class="search-sidebar2 size12 bo2 pos-relative">
+					<input class="input-search-sidebar2 txt10 p-l-20 p-r-55" type="text" name="search" placeholder="Search">
+					<button class="btn-search-sidebar2 flex-c-m ti-search trans-0-4" type="submit"></button>
+				</div>
+			</div>
+		</form>
+		<div class="row">
+			{% for restaurant in restaurants %}
+			{% include 'restaurant/_restaurant.html' %}
+			{% endfor %}
+		</div>
+	</div>
+</section>
+{% endblock %}
