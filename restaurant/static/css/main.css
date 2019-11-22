@@ -47,6 +47,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 
+@import url('https://fonts.googleapis.com/css?family=Jua&display=swap');
 @font-face {
   font-family: Montserrat-Regular;
   src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
@@ -99,7 +100,8 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 body, html {
   height: 100%;
-	font-family: Montserrat, sans-serif;
+  /* font-family: Montserrat, sans-serif; */
+  font-family: 'Jua', sans-serif;
   font-weight: 400;
 }
 
@@ -107,7 +109,7 @@ body, html {
 
 /* ------------------------------------ */
 a {
-	font-family: Montserrat;
+	font-family: 'Jua', sans-serif;
   font-weight: 400;
 	font-size: 15px;
 	line-height: 1.7;
