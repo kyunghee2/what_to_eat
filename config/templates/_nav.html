@@ -17,7 +17,8 @@
 					</a>
 				</div>
 
-				{% comment %} <!-- Menu -->
+				{% comment %}
+				<!-- Menu -->
 				<div class="wrap_menu p-l-45 p-l-0-xl">
 					<nav class="menu">
 						<ul class="main_menu">
@@ -31,7 +32,7 @@
 							<li>
 								<a href="{% url 'accounts:change_password'%}">암호변경</a>
 							</li>
-								<li>
+							<li>
 								<a href="{% url 'accounts:change_password'%}">암호변경</a>
 							</li>
 							<li>
@@ -52,9 +53,10 @@
 
 				<!-- 이름+이미지 -->
 				<div class="social flex-w flex-l-m p-r-20">
-						{% comment %} {% if user.is_authenticated %}
-							<img class="rounded-circle ml-2 mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=50" alt="">
-						{% endif %} {% endcomment %}
+					{% comment %} {% if user.is_authenticated %}
+					<img class="rounded-circle ml-2 mr-2"
+						src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=50" alt="">
+					{% endif %} {% endcomment %}
 					<button class="btn-show-sidebar m-l-33 trans-0-4"></button>
 				</div>
 			</div>
@@ -71,43 +73,74 @@
 		{% if user.is_authenticated %}
 
 		<li class="t-center m-b-20">
+			<img class="rounded-circle ml-2 mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=60"
+				alt="">
+		</li>
+
+		<li class="t-center m-b-20">
 			<b>{{ user.username }}</b>
-			<img class="rounded-circle ml-2 mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=60" alt="">
 		</li>
 
 		<li class="t-center m-b-13">
 			<a href="{% url 'restaurant:index' %}" class="txt19">홈으로</a>
 		</li>
 
+		<li class="m-b-13 border-bottom">
+		</li>
+
 		<li class="t-center m-b-13">
 			<a href="{% url 'accounts:profile' user.username %}" class="txt19">마이페이지</a>
+		</li>
+
+		<li class="m-b-13 border-bottom">
 		</li>
 
 		<li class="t-center m-b-13">
 			<a href="{% url 'accounts:update'%}" class="txt19">정보수정</a>
 		</li>
 
-		<li class="t-center m-b-13">
-			<a href="{% url 'accounts:change_password'%}" class="txt19">비밀번호변경</a>
-		</li>
-		
-		<li class="t-center m-b-13">
-			<a href="{% url 'accounts:logout' %}" class="btn btn-info txt19">로그아웃</a>
+		<li class="m-b-13 border-bottom">
 		</li>
 
 		<li class="t-center m-b-13">
+			<a href="{% url 'accounts:change_password'%}" class="txt19">비밀번호변경</a>
+		</li>
+
+		<li class="m-b-13 border-bottom">
+		</li>
+
+		<li class="t-center m-b-13">
+			<a href="{% url 'accounts:logout' %}" class="btn btn-outline-secondary txt19">로그아웃</a>
+		</li>
+
+		<li class="t-right m-t-400">
 			<form action="{% url 'accounts:delete' %}" method="POST" style="display: inline;">
 				{% csrf_token %}
-				<input type="submit" value="회원탈퇴" class="btn btn-danger txt19">
+				<input type="submit" value="회원탈퇴" class="btn btn-outline-danger txt19">
 			</form>
 		</li>
 
 		{% else %}
+
+		<li class="t-center m-b-20">
+			<img class="rounded-circle ml-2 mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=60&d=mp"
+				alt="">
+		</li>
+		<li class="t-center m-b-13">
+			<b>Membership</b>
+		</li>
 		<li class="t-center m-b-13">
 			<a href="{% url 'accounts:login' %}" class="txt19">로그인</a>
 		</li>
+
+		<li class="m-b-13 border-bottom">
+		</li>
+
 		<li class="t-center m-b-13">
 			<a href="{% url 'accounts:signup' %}" class="txt19">회원가입</a>
+		</li>
+		<li class="t-center m-b-13">
+			<a href="#" class="txt19">마이페이지</a>
 		</li>
 		{% endif %}
 
