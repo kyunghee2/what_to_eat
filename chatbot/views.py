@@ -70,7 +70,7 @@ def telegram_chatbot(request,token_in):
             sendtext = "환영합니다 !\n"
             sendtext += "뭐먹을까 봇 입니다\n"
             sendtext += "점심에 맛집 정보를 추천해드립니다.\n"
-            sendtext += "(현재 역삼동만 서비스하고 있습니다.)\n"
+            sendtext += "(현재 역삼동만 서비스하고 있습니다)\n"
             #sendtext += " <a href=''>가입하기</a> "
             bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
 

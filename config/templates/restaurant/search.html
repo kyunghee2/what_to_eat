@@ -4,8 +4,8 @@
 
 {% block body %}
 <section class="section-welcome p-t-120 p-b-105">
-	<div class="container">
-		<form class="mb-4" action="">
+	<div class="container ">
+		<form class="mb-4" action="" required onsubmit="return checkBlank();">
 			<div class="form-row justify-content-end">
 				<!-- Search -->
 				<div class="search-sidebar2 size12 bo2 pos-relative">
@@ -14,7 +14,7 @@
 				</div>
 			</div>
 		</form>
-		<div class="row">
+		<div class="row justify-content-center align-items-center">
 			{% for restaurant in restaurants %}
 			{% include 'restaurant/_restaurant.html' %}
 			{% endfor %}

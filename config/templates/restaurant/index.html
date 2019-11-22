@@ -5,10 +5,10 @@
 {% block body %}
 
 <!-- Welcome -->
-<section class="p-t-140">
+<section class="p-t-140 p-b-50">
 	<div class="container section-welcome bg1-pattern p-t-30">
 		<div class="row mt-1">
-			<div class="col-md-6 p-t-45 p-b-30">
+			<div class="col-md-6 p-t-45">
 				<div class="wrap-text-welcome t-center">
 					<span class="tit2 t-center">
 						What to eat today?
@@ -19,13 +19,14 @@
 					<p class="t-center m-b-22 size3 m-l-r-auto">
 						오늘 점심으로 뭐가 좋을까? 란 고민을 위해 <b>환상의 점심을 소개할게요</b>
 					</p>
-					<form class="mb-4" action="{% url 'restaurant:search' %}">
+					<form name="searchForm" class="mb-4" action="{% url 'restaurant:search' %}" required
+						onsubmit="return checkBlank()">
 						<div class="form-row justify-content-end">
-							<div class="col-12 col-sm-9 col-md-10">
-								<input type="text" name="search" class="form-control" placeholder="검색어를 입력해주세요">
-							</div>
-							<div class="col-3 col-sm-3 col-md-2">
-								<input type="submit" class="form-control btn btn-secondary" value="검색">
+							<!-- Search -->
+							<div class="search-sidebar2 size12 bo2 pos-relative">
+								<input class="input-search-sidebar2 txt10 p-l-20 p-r-55" type="text" name="search"
+									placeholder="Search">
+								<button class="btn-search-sidebar2 flex-c-m ti-search trans-0-4" type="submit"></button>
 							</div>
 						</div>
 					</form>
@@ -45,95 +46,147 @@
 <!-- Intro -->
 <section class="section-intro">
 
-		<div class="content-intro bg-white p-t-77 p-b-133">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 p-t-30">
+	<div class="content-intro bg-white p-b-50">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-4 p-t-30 index-columns">
+					<a href="#" style="text-decoration: none;">
 						<!-- Block1 -->
 						<div class="blo1">
 							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-								<a href="#"><img src='{% static "images/intro-01.jpg" %}' alt="IMG-INTRO"></a>
+								<img src='{% static "images/혼밥.jpg" %}' alt="IMG-INTRO">
 							</div>
-
-							<div class="wrap-text-blo1 p-t-35">
-								<a href="#">
-									<h4 class="txt5 color0-hov trans-0-4 m-b-13">
-										Romantic Restaurant
-									</h4>
-								</a>
-
-								<p class="m-b-20">
-									Phasellus lorem enim, luctus ut velit eget, con-vallis egestas eros.
-								</p>
-
-								<a href="#" class="txt4">
-									Learn More
-									<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-								</a>
+							<div class="wrap-text-blo1 p-t-35 index-text">
+								<h4 class="txt5 color0-hov trans-0-4 m-b-13">
+									혼자 먹어요
+								</h4>
 							</div>
 						</div>
-					</div>
-
-					<div class="col-md-4 p-t-30">
-						<!-- Block1 -->
-						<div class="blo1">
-							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-								<a href="#"><img src='{% static "images/intro-02.jpg" %}' alt="IMG-INTRO"></a>
-							</div>
-
-							<div class="wrap-text-blo1 p-t-35">
-								<a href="#">
-									<h4 class="txt5 color0-hov trans-0-4 m-b-13">
-										Delicious Food
-									</h4>
-								</a>
-
-								<p class="m-b-20">
-									Aliquam eget aliquam magna, quis posuere risus ac justo ipsum nibh urna
-								</p>
-
-								<a href="#" class="txt4">
-									Learn More
-									<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4 p-t-30">
-						<!-- Block1 -->
-						<div class="blo1">
-							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-								<a href="#"><img src="{% static "images/intro-04.jpg" %}" alt="IMG-INTRO"></a>
-							</div>
-
-							<div class="wrap-text-blo1 p-t-35">
-								<a href="#">
-									<h4 class="txt5 color0-hov trans-0-4 m-b-13">
-										Red Wines You Love
-									</h4>
-								</a>
-
-								<p class="m-b-20">
-									Sed ornare ligula eget tortor tempor, quis porta tellus dictum.
-								</p>
-
-								<a href="#" class="txt4">
-									Learn More
-									<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-
+					</a>
 				</div>
-			</div>
-		</div>
+
+				<div class="col-md-4 p-t-30 index-columns">
+					<a href="#" style="text-decoration: none;">
+						<!-- Block1 -->
+						<div class="blo1">
+							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
+								<img src='{% static "images/2밥.jpg" %}' alt="IMG-INTRO">
+							</div>
+							<div class="wrap-text-blo1 p-t-35">
+								<h4 class="txt5 color0-hov trans-0-4 m-b-13 index-text">
+									둘이서 먹어요
+								</h4>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 p-t-30 index-columns">
+					<a href="#" style="text-decoration: none;">
+						<!-- Block1 -->
+						<div class="blo1">
+							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
+								<img src='{% static "images/3+밥.jpg" %}' alt="IMG-INTRO">
+							</div>
+							<div class="wrap-text-blo1 p-t-35">
+								<h4 class="txt5 color0-hov trans-0-4 m-b-13 index-text">
+									여럿이서 먹어요
+								</h4>
+							</div>
+						</div>
+					</a>
+					=======
+					<div class="content-intro bg-white p-t-77 p-b-133">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-4 p-t-30">
+									<!-- Block1 -->
+									<div class="blo1">
+										<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
+											<a href="#"><img src='{% static "images/본죽본비빔밥.png" %}' height="288px"
+													alt="IMG-INTRO"></a>
+										</div>
+
+										<div class="wrap-text-blo1 p-t-35">
+											<a href="#">
+												<h4 class="txt5 color0-hov trans-0-4 m-b-13">
+													본죽 & 비빔밥
+												</h4>
+											</a>
+
+											<p class="m-b-20">
+												추천메뉴 :
+											</p>
+
+											<a href="#" class="txt4">
+												+ menus
+												<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-4 p-t-30">
+									<!-- Block1 -->
+									<div class="blo1">
+										<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
+											<a href="#"><img src='{% static "images/부산아지매국밥2.png" %}' height="288px"
+													alt="IMG-INTRO"></a>
+										</div>
+
+										<div class="wrap-text-blo1 p-t-35">
+											<a href="#">
+												<h4 class="txt5 color0-hov trans-0-4 m-b-13">
+													부산 아지매 국밥
+												</h4>
+											</a>
+
+											<p class="m-b-20">
+												Aliquam eget aliquam magna, quis posuere risus ac justo ipsum nibh urna
+											</p>
+
+											<a href="#" class="txt4">
+												+ menus
+												<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-4 p-t-30">
+									<!-- Block1 -->
+									<div class="blo1">
+										<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
+											<a href="#"><img src="{% static "images/빌즈2.png" %} " height="288px"
+													alt="IMG-INTRO"></a>
+										</div>
+
+										<div class="wrap-text-blo1 p-t-35">
+											<a href="#">
+												<h4 class="txt5 color0-hov trans-0-4 m-b-13">
+													빌즈 강남역삼점
+												</h4>
+											</a>
+
+											<p class="m-b-20">
+												Sed ornare ligula eget tortor tempor, quis porta tellus dictum.
+											</p>
+
+											<a href="#" class="txt4">
+												+ menus
+												<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
 </section>
 
-
 <!-- Review -->
-<section class="section-review p-t-115">
+<section class="section-review">
 	<!-- - -->
 	<div class="title-review t-center m-b-2">
 		<span class="tit2 p-l-15 p-r-15">
@@ -151,7 +204,8 @@
 			<div class="item-slick3 item1-slick3">
 				<div class="wrap-content-slide3 p-b-50 p-t-50">
 					<div class="container">
-						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
+						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"
+							data-appear="zoomIn">
 							<img src='{% static "images/avatar-dohyun.jpg" %}' alt="IGM-AVATAR">
 						</div>
 
@@ -179,7 +233,8 @@
 			<div class="item-slick3 item2-slick3">
 				<div class="wrap-content-slide3 p-b-50 p-t-50">
 					<div class="container">
-						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
+						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"
+							data-appear="zoomIn">
 							<img src='{% static "images/avatar-sehwan.jpg" %}' alt="IGM-AVATAR">
 						</div>
 
@@ -207,13 +262,15 @@
 			<div class="item-slick3 item3-slick3">
 				<div class="wrap-content-slide3 p-b-50 p-t-50">
 					<div class="container">
-						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
+						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"
+							data-appear="zoomIn">
 							<img src='{% static "images/avatar-05.jpg" %}' alt="IGM-AVATAR">
 						</div>
 
 						<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
 							<p class="t-center txt12 size15 m-l-r-auto">
-								“ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem, mattis in pre-tium
+								“ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem,
+								mattis in pre-tium
 								nec, fermentum viverra dui ”
 							</p>
 
@@ -238,7 +295,6 @@
 		<div class="wrap-slick3-dots m-t-30"></div>
 	</div>
 </section>
-
 {% endblock body %}
 
 </html>
