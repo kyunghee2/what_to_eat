@@ -7,13 +7,16 @@ from .models import Restaurant
 def index(request):
     return render(request, 'restaurant/index.html' )
 
-def query(request):
-    query = request.GET.get('query')
-    restaurants = Restaurant.objects.filter(name__icontains=query)
+def search(request):
+    search = request.GET.get('search')
+    restaurants = Restaurant.objects.filter(name__icontains=search)
     context = {
         'restaurants': restaurants
     }
-    return render(request, 'restaurant/query.html', context)
+    return render(request, 'restaurant/search.html', context)
+
+def detail(request, restaurant_pk):
+    pass
 
 # def csvfilesave(request):
 #     with open('whattoeat_db.csv', newline='', encoding='UTF8') as csvfile:
