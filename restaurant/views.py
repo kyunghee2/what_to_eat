@@ -61,6 +61,9 @@ def comments_create(request, restaurant_pk):
             comment.save()
         return redirect('restaurant:detail', restaurant_pk)
 
+def chatbot_how_to_use (request):
+    return render(request, 'restaurant/chatbot_how_to_use.html')
+
 # def csvfilesave(request):
 #     with open('whattoeat_db.csv', newline='', encoding='UTF8') as csvfile:
 #         reader = csv.DictReader(csvfile)
