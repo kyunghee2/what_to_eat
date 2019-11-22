@@ -8,4 +8,5 @@ urlpatterns = [
    path('', views.index, name='index'),
    # path('csvfilesave/',views.csvfilesave, name='csvfilesave'),
    path('search/', views.search, name='search'),
+   path('<int:restaurant_pk>/', views.detail, name='detail'),
 ]
