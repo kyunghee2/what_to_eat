@@ -8,6 +8,7 @@ from restaurant.models import Restaurant
 from accounts.models import Telegram
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
+from django.db.models import Q
 
 api_url = 'https://api.telegram.org'
 token = config('TELEGRAM_BOT_TOKEN') #프로젝트내에 .env에서 정보를 가져옴
@@ -90,7 +91,8 @@ def telegram_chatbot(request,token_in):
             arr = text.split(' ')
             if len(arr) >= 1:
                 r_type = arr[1]
-                restaurants = Restaurant.objects.filter(r_type=r_type)
+                #restaurants = Restaurant.objects.filter(r_type=r_type)
+                restaurants = Restaurant.objects.filter(Q(name__contains=r_type) | Q(r_type__contains=r_type) | Q(addr__contains=r_type))
                 sel_obj = random.choice(restaurants)
 
                 sendtext = " [{0}] 음식점 추천해드립니다.♡ \n\n"
