@@ -5,135 +5,153 @@
 
 {% block body %}
 
-	<!-- Title Page --><!--url(restaurant/images/bg-title-page-03.jpg);-->
-	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image:"{% static "images/bg-title-page-03.jpg" %} " " >
-		<h2 class="tit6 t-center">
-			DETAIL
-		</h2>
-	</section>
+<!-- Title Page -->
+<!--url(restaurant/images/bg-title-page-03.jpg);-->
+<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image:"
+	{% static "images/bg-title-page-03.jpg" %} " ">
+	<h2 class="tit6 t-center">
+		DETAIL
+	</h2>
+</section>
 
-		<div class="container">
-			<div class="row ">
-				<div class="col-md-8 col-lg-9">
-					<div class="p-t-80 p-b-124 bo5-r p-r-50 h-full p-r-0-md bo-none-md">
-						<!-- Block4 -->
-						<div class="blo4 p-b-63">
-							<!-- - -->
-							<div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
-								<a href="blog-detail.html">
-									<img src="{% static "images/본죽본비빔밥.png" %}"   alt="IMG-BLOG">
-								</a>
+<div class="container">
+	<div class="row ">
+		<div class="col-md-8 col-lg-9">
+			<div class="p-t-80 p-b-124 bo5-r p-r-50 h-full p-r-0-md bo-none-md">
+				<!-- Block4 -->
+				<div class="blo4 p-b-63">
+					<!-- - -->
+					<div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
+						<a href="blog-detail.html">
+							<img src="{% static "images/본죽본비빔밥.png" %}" alt="IMG-BLOG">
+						</a>
 
-								<div class="date-blo4 flex-col-c-m">
-									<span class="txt30 m-b-4">
-										{{restaurant.pk}}
-									</span>
-								</div>
-							</div>
+						<div class="date-blo4 flex-col-c-m">
+							<span class="txt30 m-b-4">
+								{{restaurant.pk}}
+							</span>
+						</div>
+					</div>
 
-							<!-- - -->
-							<div class="text-blo4 p-t-33">
-								<h4 class="p-b-16">
-									<a href="blog-detail.html" class="tit9">Cooking recipe Delicious</a>
-								</h4>
+					<!-- - -->
+					<div class="text-blo4 p-t-33">
+						<h4 class="p-b-16">
+							<a href="blog-detail.html" class="tit9">Cooking recipe Delicious</a>
+						</h4>
 
-								<div class="txt32 flex-w p-b-24">
-									<span>
-										by Admin
-										<span class="m-r-6 m-l-4">|</span>
-									</span>
+						<div class="txt32 flex-w p-b-24">
+							<span>
+								by Admin
+								<span class="m-r-6 m-l-4">|</span>
+							</span>
 
-									<span>
-										28 December, 2018
-										<span class="m-r-6 m-l-4">|</span>
-									</span>
+							<span>
+								28 December, 2018
+								<span class="m-r-6 m-l-4">|</span>
+							</span>
 
-									<span>
-										Cooking, Food
-										<span class="m-r-6 m-l-4">|</span>
-									</span>
+							<span>
+								Cooking, Food
+								<span class="m-r-6 m-l-4">|</span>
+							</span>
 
-									<span>
-										8 Comments
-									</span>
-								</div>
-
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget mi sem. Nulla facilisi. Sed ultricies eros a nibh tempus, in sodales mi vestibulum. Nullam quis dui ac nisl ultrices euismod et sit amet urna. Morbi semper sapien quis ex tempor, sit amet scelerisque eros rhoncus. Cras scelerisque auctor gravida. Nunc fermentum luctus rhoncus. Nulla vulputate fermentum convallis. In quis pellentesque tortor. Cras metus nibh, gravida vitae ante vel, finibus semper tellus. Nulla vel tincidunt magna. Morbi tempor velit lectus, eu commodo quam volutpat vitae.
-								</p>
-							</div>
+							<span>
+								8 Comments
+							</span>
 						</div>
 
-						{% if user.is_authenticated %}
-
-						<!-- Leave a comment -->
-						 <h4 class="txt33 p-b-14">
-							Leave a Comment
-							</h4>
-						 <form action="" class="leave-comment p-t-10" method="POST">						
-  						{% csrf_token %}					
-							{{ comment.form }}
-							<fieldset class="rating">
-   					 	<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-							<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-							<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-							<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-							<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-							<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-							<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-							<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-							<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-							<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-							</fieldset>
-
-							<textarea class="bo-rad-5 size29 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-40 " name="commentent" placeholder="Comment..."></textarea>  						
-   					  <input type="submit" value="댓글작성" name="comment"  class="btn btn-secondary" style="display:inline">
-							</form>
-						
-{% comment %} 						
-							<!-- Button3 -->
-							<button type="submit" class="btn3 flex-c-m size31 txt11 trans-0-4">
-								Post Comment
-							</button>  {% endcomment %}
-						{% else %}
-						<a href = "{% url 'accounts:login' %}"> [댓글 작성하려면 로그인하세요] </a>
-						{% endif %}
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget mi sem. Nulla facilisi. Sed
+							ultricies eros a nibh tempus, in sodales mi vestibulum. Nullam quis dui ac nisl ultrices euismod et sit
+							amet urna. Morbi semper sapien quis ex tempor, sit amet scelerisque eros rhoncus. Cras scelerisque auctor
+							gravida. Nunc fermentum luctus rhoncus. Nulla vulputate fermentum convallis. In quis pellentesque tortor.
+							Cras metus nibh, gravida vitae ante vel, finibus semper tellus. Nulla vel tincidunt magna. Morbi tempor
+							velit lectus, eu commodo quam volutpat vitae.
+						</p>
 					</div>
 				</div>
 
-				<div class="col-md-4 col-lg-3">
-					<div class="sidebar2 p-t-80 p-b-80 p-l-20 p-l-0-md p-t-0-md">
-						<!-- Search -->
-						<div class="search-sidebar2 size12 bo2 pos-relative">
-							<input class="input-search-sidebar2 txt10 p-l-20 p-r-55" type="text" name="search" placeholder="검색어를 입력하세요">
-							<button class="btn-search-sidebar2 flex-c-m ti-search trans-0-4"></button>
-						</div>
+				{% if user.is_authenticated %}
 
-						<!-- Categories -->
-						<div class="categories">
-							<h4 class="txt33 bo5-b p-b-35 p-t-58">
-								Categories
-							</h4>
+				<!-- Leave a comment -->
+				<h4 class="txt33 p-b-14">
+					Leave a Comment
+				</h4>
+				<form action="" class="leave-comment p-t-10" method="POST">
+					{% csrf_token %}
+					{{ comment.form }}
+					<fieldset class="rating">
+						<input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5"
+							title="Awesome - 5 stars"></label>
+						<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half"
+							title="Pretty good - 4.5 stars"></label>
+						<input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4"
+							title="Pretty good - 4 stars"></label>
+						<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half"
+							title="Meh - 3.5 stars"></label>
+						<input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3"
+							title="Meh - 3 stars"></label>
+						<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half"
+							title="Kinda bad - 2.5 stars"></label>
+						<input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2"
+							title="Kinda bad - 2 stars"></label>
+						<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half"
+							title="Meh - 1.5 stars"></label>
+						<input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1"
+							title="Sucks big time - 1 star"></label>
+						<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf"
+							title="Sucks big time - 0.5 stars"></label>
+					</fieldset>
 
-							<ul>
-								<li class="bo5-b p-t-8 p-b-8">
-									<a href="#" class="txt27">
-										BACK
-									</a>
-								</li>
+					<textarea class="bo-rad-5 size29 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-40 " name="commentent"
+						placeholder="Comment..."></textarea>
+					<input type="submit" value="댓글작성" name="comment" class="btn btn-secondary" style="display:inline">
+				</form>
 
-								<li class="bo5-b p-t-8 p-b-8">
-									<a href="#" class="txt27">
-										INDEX
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
+				{% comment %}
+				<!-- Button3 -->
+				<button type="submit" class="btn3 flex-c-m size31 txt11 trans-0-4">
+					Post Comment
+				</button> {% endcomment %}
+				{% else %}
+				<a href="{% url 'accounts:login' %}"> [댓글 작성하려면 로그인하세요] </a>
+				{% endif %}
+			</div>
+		</div>
+
+		<div class="col-md-4 col-lg-3">
+			<div class="sidebar2 p-t-80 p-b-80 p-l-20 p-l-0-md p-t-0-md">
+				<!-- Search -->
+				<div class="search-sidebar2 size12 bo2 pos-relative">
+					<input class="input-search-sidebar2 txt10 p-l-20 p-r-55" type="text" name="search" placeholder="검색어를 입력하세요">
+					<button class="btn-search-sidebar2 flex-c-m ti-search trans-0-4"></button>
+				</div>
+
+				<!-- Categories -->
+				<div class="categories">
+					<h4 class="txt33 bo5-b p-b-35 p-t-58">
+						Categories
+					</h4>
+
+					<ul>
+						<li class="bo5-b p-t-8 p-b-8">
+							<a href="#" class="txt27">
+								BACK
+							</a>
+						</li>
+
+						<li class="bo5-b p-t-8 p-b-8">
+							<a href="#" class="txt27">
+								INDEX
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
+</div>
+</section>
 
 
 {% endblock body %}
