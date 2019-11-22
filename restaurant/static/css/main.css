@@ -34,11 +34,11 @@ Paragrap        : 18px/1.6 '', Arial, sans-serif;
 Input, textarea : 14px/1.6 '', Arial, sans-serif;
 -------------------------------------------------------------------*/
 
-
-
 /*[ FONT ]
 ///////////////////////////////////////////////////////////
 */
+
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
 @import url('https://fonts.googleapis.com/css?family=Courgette');
@@ -88,21 +88,22 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 
-
 /*[ RESTYLE TAG ]
 ///////////////////////////////////////////////////////////
 */
 * {
-	margin: 0px; 
+  margin: 0px; 
 	padding: 0px; 
 	box-sizing: border-box;
 }
 
 body, html {
-	height: 100%;
+  height: 100%;
 	font-family: Montserrat, sans-serif;
   font-weight: 400;
 }
+
+
 
 /* ------------------------------------ */
 a {
@@ -719,7 +720,7 @@ input[type="date" i] {
 .sidebar {
   position: fixed;
   z-index: 1200;
-  width: 390px;
+  width: 280px;
   height: 100%;
   overflow: auto;
   background-color: white;
@@ -1625,3 +1626,30 @@ body {padding-right: 0px !important;}
   border-radius: 10px;
   background-color: #fc5000;
 }
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+

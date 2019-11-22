@@ -10,6 +10,7 @@
     <h5 class="card-title">{{ restaurant.name }}</h5>
     <p class="card-text">{{ restaurant.main_menu }}</p>
     <p class="card-text">{{ restaurant.addr }}</p>
-    {% comment %} <a href="{% url 'restaurant:detail' %}" class="btn btn-primary">상세정보</a> {% endcomment %}
+    <a href="{% url 'restaurant:detail' restaurant.pk %}" class="btn btn-light">상세정보</a>
+    
   </div>
 </div>

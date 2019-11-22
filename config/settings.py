@@ -33,10 +33,11 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'accounts',
     'chatbot',    
-    'restaurant',
+    'restaurant',    
     'bootstrap4',
     'django_extensions',
     'django_mysql',
+    'django_crontab',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -151,3 +152,7 @@ STATICFILES_DIRS = [
 # Media Files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# CRONJOBS = [
+#     ('*/1 * * * *', 'chatbot.cron.my_cron_job')
+# ]

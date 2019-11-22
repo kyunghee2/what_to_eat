@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
     "python.pythonPath": "C:\\Users\\student\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
-=======
-    "python.pythonPath": "venv\\Scripts\\python.exe",
->>>>>>> 81f316af5f06b5a8806566504a55463bd5f5dc77
     
     "files.associations": {
         "**/*.html": "html",

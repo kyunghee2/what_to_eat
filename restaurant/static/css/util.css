@@ -1464,6 +1464,7 @@
 .m-t-248 {margin-top: 248px;}
 .m-t-249 {margin-top: 249px;}
 .m-t-250 {margin-top: 250px;}
+.m-t-400 {margin-top: 400px;}
 .m-b-0 {margin-bottom: 0px;}
 .m-b-1 {margin-bottom: 1px;}
 .m-b-2 {margin-bottom: 2px;}
@@ -3585,7 +3586,6 @@ SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
 
 .bo7 {border: 2px solid #e6e6e6;}
 .bo8 {border: 5px solid white;}
-
 
 /* ------------------------------------ */
 .bo-rad-2 {border-radius: 2px;} 
