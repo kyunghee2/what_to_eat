@@ -1,12 +1,13 @@
-from django.shortcuts import render,redirect
-from decouple import config
 import requests
 import random
 import telegram
 import json
+from django.shortcuts import render,redirect
+from decouple import config
 from restaurant.models import Restaurant
 from accounts.models import Telegram
 from django.views.decorators.http import require_POST
+from django.http import JsonResponse
 
 api_url = 'https://api.telegram.org'
 token = config('TELEGRAM_BOT_TOKEN') #프로젝트내에 .env에서 정보를 가져옴
@@ -15,6 +16,40 @@ bot = telegram.Bot(token=token)
 
 def index(request):
     return render(request, 'chatbot/index.html' )
+
+def telegram_chat_schedule(request):
+    #telegram chat_id 등록된 모든 사용자에게 추천 메시지 발송
+    status=1
+    error_msg=''
+    try :
+        telegram_users = Telegram.objects.all()
+        print('>>>>>>>>>>>>>')
+        print(telegram_users)
+        restaurants = Restaurant.objects.filter(r_type='한식')
+        sel_obj = random.choice(restaurants)
+
+        for user in telegram_users:     
+            sendtext = "오늘 점심 [{0}] 음식점 추천해드립니다.♡ \n\n"
+            sendtext += "메인메뉴: {1} \n"
+            sendtext += "주소: {2} "
+            sendtext += "(<a href='https://map.kakao.com/?q={3}'>길찾기 바로가기</a>)\n"
+            sendtext += "그외 메뉴(가격):\n"
+            sendtext += "<pre>{4}</pre>"
+            sendtext = sendtext.format(sel_obj.name,sel_obj.main_menu, sel_obj.addr, sel_obj.addr, sel_obj.content)
+
+            bot.send_message(chat_id=user.chat_id, text=sendtext,parse_mode='HTML')
+
+    except Exception as e:
+        print('error!!!')
+        status = 0
+        error_msg = str(e)
+        
+    context = {
+        'status': status,
+        'msg':error_msg
+    }
+    return JsonResponse(context)
+
 
 @require_POST
 def telegram_chatbot(request,token_in):
@@ -45,8 +80,8 @@ def telegram_chatbot(request,token_in):
             bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
 
             #사용자 정보 없는 경우만 저장
-            telegrams = Telegram.objects.filter(chat_id=chat_id)            
-            if telegrams.exists==false :
+            telegrams = Telegram.objects.filter(chat_id=chat_id)                     
+            if telegrams.count() == 0 :
                 telegram = Telegram(chat_id=chat_id)
                 telegram.save()
 
@@ -55,8 +90,8 @@ def telegram_chatbot(request,token_in):
             sendtext +="  (종류:한식,양식,중식,일식,분식)\n"
             sendtext +="* 알림해제 방법은? /알림해제 \n"
             bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
+
         elif '/맛집' in text:
-            print('search')
             arr = text.split(' ')
             if len(arr) >= 1:
                 r_type = arr[1]
