@@ -32,8 +32,19 @@ def search(request):
 
 #     pass
 
-def detail(request):
-    return render(request, 'restaurant/detail.html')
+# def detail(request):
+#     return render(request, 'restaurant/detail.html')
+
+
+def detail(request, restaurant_pk):
+    restaurant = get_object_or_404(Restaurant, pk=restaurant_pk)
+    comment_form = CommentForm()
+    context = {
+        'restaurant':restaurant,
+        'comment_form': comment_form,
+    }    
+    return render(request, 'restaurant/detail.html',context)
+
 
 @require_POST
 def comments_create(request, restaurant_pk):
