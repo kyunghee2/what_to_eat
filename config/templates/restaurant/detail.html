@@ -10,12 +10,16 @@
 <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
 	style="background-image: url(images/bg-title-page-03.jpg);">
 	<h2 class="tit6 t-center">
+		{% if restaurant.img_path %}
 		<img src="{{restaurant.img_path.url}}" class="rounded card-img-top">
+		{% else %}
+		<img src="{% static 'images/no-image.png' %}" style="width: 100%">
+		{% endif %}
 	</h2>
 </section>
 
 <div class="container">
-<!-- 폰트 설정 위치 -->
+	<!-- 폰트 설정 위치 -->
 	<div class="txt36 row p-b-50">
 		<div class="col-9 bo5-r">
 			<h2 class="p-b-16"> {{ restaurant.name }} </h2>
@@ -81,9 +85,9 @@
 	<div class="m-b-50">
 		<h4 class="txt33 p-b-10">Comments</h4>
 		{% for comment in comments %}
-			{% include 'restaurant/_comment.html' %}
-			{% empty %}
-			{% include 'restaurant/empty.html' %}
+		{% include 'restaurant/_comment.html' %}
+		{% empty %}
+		{% include 'restaurant/empty.html' %}
 		{% endfor %}
 	</div>
 
