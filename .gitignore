@@ -154,3 +154,7 @@ pip-selfcheck.json
 .history
 
 # End of https://www.gitignore.io/api/venv,django,visualstudiocode
+
+*.bak
+*.sqlite3
+.venv
