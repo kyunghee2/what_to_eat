@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['sleepy-thicket-13178.herokuapp.com','*']
 
 
 # Application definition
@@ -160,4 +160,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #heroku settings
 import django_heroku
-django_heroku(locals())
+django_heroku.settings(locals())
