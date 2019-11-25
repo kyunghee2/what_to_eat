@@ -7,6 +7,19 @@
   text-align: center;
 }
 
+table {
+  border: 2px solid #fc5000;
+  width: 100%;
+  text-align: center;
+}
+
+th, td {
+  border: 1px solid #fc5000;
+}
+
+a:hover {
+  text-decoration: none;
+}
 .border-bottom {
 	border-bottom: 1px solid #dfdfdf;
 	width: 120px;
