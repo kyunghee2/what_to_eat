@@ -4,7 +4,7 @@ from .models import Restaurant
 
 class RestaurantAdmin(admin.ModelAdmin):
 
-     list_display = ('pk','name','r_type','main_menu','img_path',)
+     list_display = ('pk','name','r_type','main_menu','img_path','people')
 
 
 

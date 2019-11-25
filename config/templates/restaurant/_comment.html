@@ -1,0 +1,23 @@
+{% load static %}
+
+<div class="card mr-4 mb-4 p-2">
+  <div class="card-body">
+    <div class="row" style="color: #fc5000;">
+      <div class="col-9" >
+        <span style="font-size: x-large; text-decoration: underline;">{{ comment.user }}</span>
+        <span>({{ comment.score }})</span>
+      </div>
+      <div class="col-3" style="font-size: small">
+        {% if comment.created_at.month == month and comment.created_at.day == day %}
+        {{ comment.created_at|date:"G시 i분" }}
+        {% else %}
+        {{ comment.created_at|date:"M d일 G시 i분" }}
+        {% endif %}
+      </div>
+    </div>
+
+    <div>
+      {{comment.content}}
+    </div>
+  </div>
+</div>
