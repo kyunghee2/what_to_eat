@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
+    "python.pythonPath": "venv\\Scripts\\python.exe",
+=======
     // "python.pythonPath": "C:\\Users\\student\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+>>>>>>> 694123b43ded715472c51b143908178ce66c3d50
     
     "python.pythonPath": "~/venv/bin/python",
 
