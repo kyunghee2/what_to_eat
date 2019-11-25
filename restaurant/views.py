@@ -69,8 +69,8 @@ def comments_create(request, restaurant_pk):
             comment.save()
         return redirect('restaurant:detail', restaurant_pk)
 
-def chatbot_how_to_use (request):
-    return render(request, 'restaurant/chatbot_how_to_use.html')
+def how_to_use_chatbot (request):
+    return render(request, 'restaurant/how_to_use_chatbot.html')
 
 def people(request, people):
     restaurants = Restaurant.objects.filter(people=people)
