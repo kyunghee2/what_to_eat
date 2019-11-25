@@ -3093,7 +3093,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .txt5 {
-	font-family: Poppins;
+	font-family:  'Noto Sans KR', sans-serif;
 	font-weight: 500;
 	font-size: 22px;
 	color: #333333;
@@ -3358,6 +3358,13 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	color: #666666;
 	text-transform: uppercase;
 	line-height: 1.8;
+}
+
+.txt36 {
+	font-family: 'Noto Serif KR', serif;
+	font-size: 17px;
+	line-height: 1.8;
+	color: #666666;
 }
 
 
