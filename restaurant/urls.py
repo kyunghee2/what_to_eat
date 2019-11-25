@@ -8,7 +8,7 @@ urlpatterns = [
    path('', views.index, name='index'),
    path('search/', views.search, name='search'),
    path('<int:restaurant_pk>/', views.detail, name='detail'),
-   path('chatbot_how_to_use/', views.chatbot_how_to_use, name='chatbot_how_to_use'),
-   path('people/<int:people>/', views.people, name='people'),
-   path('comments/<int:restaurant_pk>', views.comments_create, name='comment')
+   path('comments/<int:restaurant_pk>', views.comments_create, name='comment'),
+   path('how_to_use_chatbot/', views.how_to_use_chatbot, name='how_to_use_chatbot'),
+   path('people/<int:people>/', views.people, name='people')
 ]
