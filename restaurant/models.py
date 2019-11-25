@@ -11,6 +11,7 @@ class Restaurant(models.Model):
     content = models.TextField(null=True, blank=True)
     main_menu = models.CharField(max_length=200)
     img_path = models.ImageField(blank=True)
+    people = models.IntegerField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

@@ -1,16 +1,17 @@
 {% load static %}
 
 <div class="card mr-4 mb-4 p-2" style="width: 14rem;">
-  {% if  restaurant.img_path %}
-  <img src="{{restaurant.img_path.url}}" class="rounded card-img-top" style="height:10rem;">
-  {% else %}
-  <img src="{% static 'images/no-image.png' %}" class="rounded card-img-top" style="height:10rem;">
-  {% endif %}
-  <div class="card-body" style="height:13rem;" >
-    <h5 class="card-title">{{ restaurant.name }}</h5>
-    <p class="card-text">{{ restaurant.main_menu }}</p>
-    <p class="card-text">{{ restaurant.addr }}</p>
-    <a href="{% url 'restaurant:detail' restaurant.pk %}" class="btn btn-light">상세정보</a>
-    
-  </div>
+  <a href="{% url 'restaurant:detail' restaurant.pk %}" style="color: #fc5000; text-decoration: none;">
+    {% if  restaurant.img_path %}
+    <img src="{{restaurant.img_path.url}}" class="rounded card-img-top" style="height:10rem;">
+    {% else %}
+    <img src="{% static 'images/no-image.png' %}" class="rounded card-img-top" style="height:10rem;">
+    {% endif %}
+    <div class="card-body" style="height:13rem;">
+      <h5 class="card-title">{{ restaurant.name }}</h5>
+      <p class="card-text">{{ restaurant.main_menu }}</p>
+      <p class="card-text">{{ restaurant.addr }}</p>
+      <a href="{% url 'restaurant:detail' restaurant.pk %}" class="btn btn-light">상세정보</a>
+    </div>
+  </a>
 </div>
