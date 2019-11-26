@@ -100,7 +100,7 @@
 			</div>
 			<div class="content-intro bg-white p-t-77 p-b-50">
 				<div class="container">
-					<h5 style="font-size: x-large;  font-weight: bold;"  class="txt37">우리의 추천 맛집을 소개할게요!</h5>
+					<h5 style="font-size: x-large;  font-weight: bold;" class="txt37">우리의 추천 맛집을 소개할게요!</h5>
 					<div class="row">
 						{% for restaurant in restaurants %}
 						<div class="col-md-4 p-t-30">
@@ -144,11 +144,11 @@
 <section class="section-review">
 	<!-- - -->
 	<div class="title-review t-center">
-		<h3 class="tit8 t-center p-x-20"> 
-		<span class="tit2 t-center">
-						Review
-					</span>
-		
+		<h3 class="tit8 t-center p-x-20">
+			<span class="tit2 t-center">
+				Review
+			</span>
+
 		</h3>
 	</div>
 
@@ -167,14 +167,6 @@
 							<p class="t-center txt12 size15 m-l-r-auto">
 								{{ comment1.content }}
 							</p>
-
-							{% comment %} <div class="star-review fs-18 color0 flex-c-m m-t-12">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-							</div> {% endcomment %}
 
 							<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
 								{{ comment1.restaurant.name }}
@@ -196,14 +188,6 @@
 							<p class="t-center txt12 size15 m-l-r-auto">
 								{{ comment2.content }}
 							</p>
-
-							{% comment %} <div class="star-review fs-18 color0 flex-c-m m-t-12">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-							</div> {% endcomment %}
 
 							<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
 								{{ comment2.restaurant.name }}
@@ -247,15 +231,15 @@
 		<div class="wrap-slick3-dots m-t-30"></div>
 
 	</div>
-
+<!--챗봇설명 start -->
 	<div class="container">
 		<span>
-			<h1 style="font-size: x-large; font-weight: bold" class="txt37">How to use Chatbot</h1>
+			<h1 style="font-size:x-large; font-weight:bold" class="txt37">How to use Chatbot</h1>
 		</span>
 		<p class="txt4 m-l-10">뭐 먹을까? 서비스는 Telegram 기반으로 이루어집니다.</p>
 		<p class="txt4 m-l-10">Telegram App을 통해 점심시간에 맛집을 추천하고 맛집검색 서비스를 해드립니다.</p>
-		<div class="row">
-			<div class="card border-light m-b-3 m-r-3" style="width: 24rem;">
+		<div class="row justify-content-center align-items-center">
+			<div class="card border-light m-b-3 m-r-3" style="width:40rem;">
 				<img class="card-img-top" src="{% static "images/how_to_use_chatbot/how_to_use_chatbot_search.png" %}"
 					alt="how_to_use_chatbot_1">
 				<img class="card-img-top" src="{% static "images/how_to_use_chatbot/how_to_use_chatbot_startClick.png" %}"
@@ -265,6 +249,7 @@
 			</div>
 		</div>
 	</div>
+<!--챗봇설명 end -->
 </section>
 {% endblock body %}
 
