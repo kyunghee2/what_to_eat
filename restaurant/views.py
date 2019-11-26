@@ -31,7 +31,6 @@ def index(request):
 def search(request):
     search = request.GET.get('search')
     restaurants = set(Restaurant.objects.filter(name__icontains=search))
-    restaurants = set(Restaurant.objects.filter(name__icontains=search))
     restaurants.update(set(Restaurant.objects.filter(r_type__icontains=search)))
     restaurants.update(set(Restaurant.objects.filter(addr__icontains=search)))
     restaurants.update(set(Restaurant.objects.filter(main_menu__icontains=search)))
