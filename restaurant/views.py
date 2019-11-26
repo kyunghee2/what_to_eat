@@ -90,9 +90,9 @@ def csvfilesave(request):
         reader = csv.DictReader(csvfile)
 
         for row in reader:
-            #print('>>>>>')
-            #print(row)
-            name = row['\ufeffname']
+            print('>>>>>')
+            print(row)
+            name = row['name']
             r_type = row['r_type']
             main_menu= row['main_menu']
             addr=row['addr']

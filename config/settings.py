@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-## 개발DB
+# 개발DB
 # SILENCED_SYSTEM_CHECKS = [
 #     'django_mysql.W002',
 # ]
