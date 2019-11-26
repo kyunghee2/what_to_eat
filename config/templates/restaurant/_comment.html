@@ -11,7 +11,7 @@
         {% if comment.created_at.month == month and comment.created_at.day == day %}
         {{ comment.created_at|date:"G시 i분" }}
         {% else %}
-        {{ comment.created_at|date:"M d일 G시 i분" }}
+        {{ comment.created_at|date:"M d일" }}
         {% endif %}
       </div>
     </div>
