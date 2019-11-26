@@ -33,3 +33,9 @@ a:hover {
   height: 400px;
 }
 
+#profile_footer {
+  position: absolute;
+  bottom:0; 
+  width:100%;
+}
+
