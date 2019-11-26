@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+<link rel="stylesheet" type="text/css" href="{% static "css/whattoeat.css" %}">
+
+{% block body %}
+<section class="section-welcome p-t-120 p-b-105">
+  <div class="container">
+    <div class="row">
+      <span>
+        <h1>How to use Chatbot</h1>
+      </span>
+    </div>
+    <p>뭐 먹을까? 서비스는 Telegram 기반으로 이루어집니다.</p>
+    <p>Telegram App을 통해 점심시간에 맛집을 추천하고 맛집검색 서비스를 해드립니다.</p>
+    <div class="card border-light mb-3" style="width: 40rem;">
+      <img class="card-img-top" src="{% static "images/how_to_use_chatbot/how_to_use_chatbot_search.png" %}" alt="how_to_use_chatbot_1">
+      <img class="card-img-top" src="{% static "images/how_to_use_chatbot/how_to_use_chatbot_startClick.png" %}" alt="how_to_use_chatbot_2">
+      <img class="card-img-top" src="{% static "images/how_to_use_chatbot/how_to_use_chatbot_start.png" %}" alt="how_to_use_chatbot_3">
+    </div>
+  </div>
+</section>
+{% endblock body %}

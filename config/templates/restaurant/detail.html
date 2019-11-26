@@ -10,12 +10,16 @@
 <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
 	style="background-image: url(images/bg-title-page-03.jpg);">
 	<h2 class="tit6 t-center">
+		{% if restaurant.img_path %}
 		<img src="{{restaurant.img_path.url}}" class="rounded card-img-top">
+		{% else %}
+		<img src="{% static 'images/no-image.png' %}" style="width: 100%">
+		{% endif %}
 	</h2>
 </section>
 
 <div class="container">
-<!-- 폰트 설정 위치 -->
+	<!-- 폰트 설정 위치 -->
 	<div class="txt36 row p-b-50">
 		<div class="col-9 bo5-r">
 			<h2 class="p-b-16"> {{ restaurant.name }} </h2>
@@ -55,62 +59,6 @@
 				<button class="btn-search-sidebar2 flex-c-m ti-search trans-0-4"></button>
 			</div>
 
-{% comment %}
-	<div class="row ">
-		<div class="col-md-8 col-lg-9">
-			<div class="p-t-80 p-b-124 bo5-r p-r-50 h-full p-r-0-md bo-none-md">
-				<!-- Block4 -->
-				<div class="blo4 p-b-63">
-					<!-- - -->
-					<div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
-						<a href="blog-detail.html">
-						{% if  restaurant.img_path %}
-						<img src="{{restaurant.img_path.url}}" class="rounded card-img-top "  style="height:28rem;">
-						{% else %}
-						<img src="{% static 'images/no-image.png' %}" class="rounded card-img-top" style="height:28rem;">
-						{% endif %}
-						</a>
-
-						<div class="date-blo4 flex-col-c-m">
-							<span class="txt30 m-b-4">
-								{{restaurant.pk}}
-							</span>
-						</div>
-					</div>
-
-					<!-- - -->
-					<div class="text-blo4 p-t-33">
-						<h4 class="p-b-16">
-							<a href="blog-detail.html" class="tit9">{{restaurant.name }}</a>
-						</h4>
-
-						<div class="txt32 flex-w p-b-24">
-			
-
-							<span>
-							{{restaurant.main_menu }}
-								<span class="m-r-6 m-l-4">|</span>
-							</span>
-
-							<span>
-								{{restaurant.addr }}
-								<span class="m-r-6 m-l-4">|</span>
-							</span>
-
-							<span>
-								8 Comments
-							</span>
-						</div>
-
-						<p>
-							{{restaurant.content }}
-						</p>
-					</div>
-				</div>
-
-				{% if user.is_authenticated %}
- {% endcomment %}
-
 			<!-- Categories -->
 			<div class="categories m-t-50">
 				<h4 class="txt33 bo5-b p-b-35">
@@ -134,7 +82,14 @@
 		</div>
 	</div>
 
-
+	<div class="m-b-50">
+		<h4 class="txt33 p-b-10">Comments</h4>
+		{% for comment in comments %}
+		{% include 'restaurant/_comment.html' %}
+		{% empty %}
+		{% include 'restaurant/empty.html' %}
+		{% endfor %}
+	</div>
 
 	{% if user.is_authenticated %}
 	<div class="m-b-50">
@@ -142,33 +97,33 @@
 		<h4 class="txt33 p-b-10">
 			Leave a Comment
 		</h4>
-		<form action="" class="leave-comment p-t-10" method="POST">
+		<form action="{% url 'restaurant:comment' restaurant.pk %}" class="leave-comment p-t-10" method="POST">
 			{% csrf_token %}
 			{{ comment.form }}
 			<fieldset class="rating">
 				<input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5"
 					title="Awesome - 5 stars"></label>
-				<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half"
+				<input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half"
 					title="Pretty good - 4.5 stars"></label>
 				<input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4"
 					title="Pretty good - 4 stars"></label>
-				<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half"
+				<input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half"
 					title="Meh - 3.5 stars"></label>
 				<input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3"
 					title="Meh - 3 stars"></label>
-				<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half"
+				<input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half"
 					title="Kinda bad - 2.5 stars"></label>
 				<input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2"
 					title="Kinda bad - 2 stars"></label>
-				<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half"
+				<input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half"
 					title="Meh - 1.5 stars"></label>
 				<input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1"
 					title="Sucks big time - 1 star"></label>
-				<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf"
+				<input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf"
 					title="Sucks big time - 0.5 stars"></label>
 			</fieldset>
 
-			<textarea class="bo-rad-5 size29 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-40 " name="commentent"
+			<textarea class="bo-rad-5 size29 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-40 " name="commentText"
 				placeholder="Comment..."></textarea>
 			<input type="submit" value="댓글작성" name="comment" class="btn btn-secondary" style="display:inline">
 		</form>
