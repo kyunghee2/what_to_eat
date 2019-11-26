@@ -1,37 +1,67 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load my_filters %}
 
 {% block body %}
 <section class="section-welcome p-t-120 p-b-105">
   <div class="container">
     <span>
       <h1 style="text-decoration: underline; font-weight:bold;">마이페이지</h1><span>
-        <div>
-          <h3 class="p-b-105">{{user.username}}님의 방문 내역</h3>
-          <div>
-            {% for comment in user.comment_set.all %}
-            <div class="card">
-              <div class="row">
-                <div class="col-9">
-                  <div class="card-title">
-                    {{ comment.restaurant.name }}
-                  </div>
-                  <div>
-                    {{ comment.content }}
-                  </div>
-                </div>
-                <div class="col-3" style="text-align: center;">
-                  {{ comment.score }}
-                </div>
-                {% comment %} <div class="col-9" style="color: #fc5000; font-size:x-large;">
-                  {{comment.restaurant.name}}
-                </div>
-                <div class="col-3">
-                  방문 점수: {{ comment.score }}</div>
-                </div>
-                <div class="row card-body">
-                  {{ comment.content }}
-                </div> {% endcomment %}
+
+        <h3 class="p-b-50">{{user.username}}님의 댓글 내역</h3>
+
+        {% comment %} <div class="card m-b-3">
+          <div class="card-title m-l-20 m-t-12 m-r-20">
+            <div class="row">
+              <div class="col-9 txt12 m-b-5" style="font-weight:bold;">
+                {{ comment.restaurant.name }}
+              </div>
+              <div class="col-3 txt_rating" style="text-align:center;">
+                {{ comment.score }}
+              </div>
             </div>
-            {% endfor %}
+            <div class="col-9 txt4 m-t-5">
+              {{ comment.content }}
+            </div>
+            <div class="col-9" style="color: #fc5000; font-size:x-large;">
+              {{comment.restaurant.name}}
+            </div>
+            <div class="col-3">
+              방문 점수: {{ comment.score }}</div>
+          </div>
+          <div class="row card-body">
+            {{ comment.content }}
+          </div>
+        </div>
+  </div> {% endcomment %}
+  <div class="row">
+    {% for comment in user.comment_set.all %}
+    <div class="card bg-light m-b-5 m-r-5" style="width: 18rem;">
+      <div class="card-header txt12" style="font-weight:bold;">
+        {{ comment.restaurant.name }}
+      </div>
+      <div class="card-body">
+        <div class="card-title txt4">
+          {{ comment.content }}
+        </div>
+      </div>
+      <div class="card-footer bg-transparent border-light txt_rating">
+        <div class="m-t-7">
+        {% for comment , starlist in commentlist %}
+          {% for i in starlist.0|times %}
+          <img src="{% static 'images/icons/fullstar.png' %}" alt='fullstar' width="20px" height="20px" class="m-r-5">
+          {% endfor %}
+          {% for i in starlist.1|times %}
+          <img src="{% static 'images/icons/halfstar.png' %}" alt='halfstar' width="20px" height="20px" class="m-r-5">
+          {% endfor %}
+          {% for i in starlist.2|times %}
+          <img src="{% static 'images/icons/emptystar.png' %}" alt='emptystar' width="20px" height="20px" class="m-r-5">
+          {% endfor %}
+          <span>({{ comment.score }})</span>
+        {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
 </section>
 {% endblock body %}

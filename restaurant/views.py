@@ -55,12 +55,30 @@ def detail(request, restaurant_pk):
         item.append((t[t.find("(")+1:t.find(")")])+"원")
         menu.append(item)
 
+    commentlist = []
+    starlist =[]
     comments = Comment.objects.filter(restaurant=restaurant)
-    
+    for comment in comments:
+        commentlist.append(comment.score)
+    print(commentlist) #3.5
+    for comment in commentlist:
+        emptystar = int((5.0- comment)//1)
+        fullstar = int(comment//1)
+        if comment%1 != 0:
+            halfstar = 1
+        else:
+            halfstar = 0
+        starlist.append([fullstar, halfstar, emptystar ])
+        print(starlist)
+
+        # print(5.0- comment) 
+
+
     context = {
         'restaurant':restaurant,
         'menu': menu,
         'comments': comments,
+        'commentlist': zip(comments, starlist),
         'month': datetime.datetime.today().month,
         'day': datetime.datetime.today().day
     }    
