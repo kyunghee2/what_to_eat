@@ -163,4 +163,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 import django_heroku
 import dj_database_url
 django_heroku.settings(locals())
-DATABASES['default'] = dj_database_url.parse('mysql://ba162ad9ad691c:9a98d0dc@us-cdbr-iron-east-05.cleardb.net/heroku_3fc7ffd6734412f', conn_max_age=1000)
+DATABASES['default'] = dj_database_url.parse('mysql://ba162ad9ad691c:9a98d0dc@us-cdbr-iron-east-05.cleardb.net/heroku_3fc7ffd6734412f')
