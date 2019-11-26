@@ -52,19 +52,21 @@
 				</div> {% endcomment %}
 
 				<!-- 이름+이미지 -->
-				<div class="social flex-w flex-l-m p-r-20">
+				<div>
 					{% comment %} {% if user.is_authenticated %}
 					<img class="rounded-circle ml-2 mr-2"
 						src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=50" alt="">
 					{% endif %} {% endcomment %}
-					<button class="btn-show-sidebar m-l-33 trans-0-4"></button>
+					<img class="btn-show-sidebar m-r-20" src="{% static 'images/icons/menu.png'%}" style="width:15%; height:15%; float:right;"
+					alt="sidebar_button">
+					{% comment %} <button class="btn-show-sidebar m-l-33 trans-0-4"></button> {% endcomment %}
 				</div>
 			</div>
 		</div>
 	</div>
 </header>
 <!--sidebar start-->
-<aside class="sidebar trans-0-4 ">
+<aside class="sidebar trans-0-4">
 	<!-- Button Hide sidebar -->
 	<button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
 
