@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['sleepy-thicket-13178.herokuapp.com','*']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -88,6 +88,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+## 개발DB
 # SILENCED_SYSTEM_CHECKS = [
 #     'django_mysql.W002',
 # ]
