@@ -17,49 +17,10 @@
 					</a>
 				</div>
 
-				{% comment %}
-				<!-- Menu -->
-				<div class="wrap_menu p-l-45 p-l-0-xl">
-					<nav class="menu">
-						<ul class="main_menu">
-							{% if user.is_authenticated %}
-							<li>
-								<a href="{% url 'accounts:profile' user.username %}">마이페이지</a>
-							</li>
-							<li>
-								<a href="{% url 'accounts:update'%}">정보수정</a>
-							</li>
-							<li>
-								<a href="{% url 'accounts:change_password'%}">암호변경</a>
-							</li>
-							<li>
-								<a href="{% url 'accounts:change_password'%}">암호변경</a>
-							</li>
-							<li>
-								<a href="{% url 'accounts:logout' %}">로그아웃</a>
-							</li>
-
-							{% else %}
-							<li>
-								<a href="{% url 'accounts:login' %}">LOGIN</a>
-							</li>
-							<li>
-								<a href="{% url 'accounts:signup' %}">SIGN UP</a>
-							</li>
-							{% endif %}
-						</ul>
-					</nav>
-				</div> {% endcomment %}
-
-				<!-- 이름+이미지 -->
 				<div>
-					{% comment %} {% if user.is_authenticated %}
-					<img class="rounded-circle ml-2 mr-2"
-						src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=50" alt="">
-					{% endif %} {% endcomment %}
-					<img class="btn-show-sidebar m-r-20" src="{% static 'images/icons/menu.png'%}" style="width:15%; height:15%; float:right;"
-					alt="sidebar_button">
-					{% comment %} <button class="btn-show-sidebar m-l-33 trans-0-4"></button> {% endcomment %}
+					<a onclick="fnMove('1')" class="btn btn-outline-secondary txt19">챗봇 사용법</a>
+					<img class="btn-show-sidebar" src="{% static 'images/icons/menu.png'%}"
+						style="width:10%; height:10%; float:right;" alt="sidebar_button">
 				</div>
 			</div>
 		</div>
@@ -75,8 +36,7 @@
 		{% if user.is_authenticated %}
 
 		<li class="t-center m-b-20">
-			<img class="rounded-circle ml-2 mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=60"
-				alt="">
+			<img class="rounded-circle ml-2 mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=60" alt="">
 		</li>
 
 		<li class="t-center m-b-20">
@@ -144,7 +104,7 @@
 
 		<li class="m-b-13 border-bottom">
 		</li>
-				
+
 		<li class="t-center m-b-13">
 			<a href="#" class="txt19">마이페이지</a>
 		</li>
