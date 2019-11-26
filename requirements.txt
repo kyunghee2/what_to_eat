@@ -53,11 +53,7 @@ pilkit==2.0
 Pillow==6.2.1
 prompt-toolkit==2.0.10
 protobuf==3.10.0
-<<<<<<< HEAD
 psycopg2==2.8.4
-=======
-ptyprocess==0.6.0
->>>>>>> 694123b43ded715472c51b143908178ce66c3d50
 pyasn1==0.4.7
 pyasn1-modules==0.2.7
 pycparser==2.19
@@ -84,8 +80,4 @@ typed-ast==1.4.0
 urllib3==1.25.6
 wcwidth==0.1.7
 Werkzeug==0.16.0
-<<<<<<< HEAD
 whitenoise==4.1.4
-=======
-wrapt==1.11.2
->>>>>>> 694123b43ded715472c51b143908178ce66c3d50
