@@ -72,6 +72,13 @@ def comments_create(request, restaurant_pk):
 def chatbot_how_to_use (request):
     return render(request, 'restaurant/chatbot_how_to_use.html')
 
+def people(request, people):
+    restaurants = Restaurant.objects.filter(people=people)
+    context = {
+        'restaurants': restaurants
+    }
+    return render(request, 'restaurant/search.html', context)
+
 # def csvfilesave(request):
 #     with open('whattoeat_db.csv', newline='', encoding='UTF8') as csvfile:
 #         reader = csv.DictReader(csvfile)

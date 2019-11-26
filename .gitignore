@@ -158,3 +158,4 @@ pip-selfcheck.json
 *.bak
 *.sqlite3
 .venv
+*.pem

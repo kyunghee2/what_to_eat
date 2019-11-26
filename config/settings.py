@@ -88,20 +88,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-SILENCED_SYSTEM_CHECKS = [
-    'django_mysql.W002',
-]
-DATABASES = {
-    'default': {     
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'whattoeat',
-        'OPTIONS': {            
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
-            'read_default_file': os.path.join(BASE_DIR, 'mydb.cnf'),
-        },
-    }
-}
+# SILENCED_SYSTEM_CHECKS = [
+#     'django_mysql.W002',
+# ]
+# DATABASES = {
+#     'default': {     
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'whattoeat',
+#         'OPTIONS': {            
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#             'charset': 'utf8mb4',
+#             'read_default_file': os.path.join(BASE_DIR, 'mydb.cnf'),
+#         },
+#     }
+# }
 
 
 # Password validation
@@ -160,4 +160,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #heroku settings
 import django_heroku
+import dj_database_url
 django_heroku.settings(locals())
+DATABASES['default'] = dj_database_url.parse('mysql://ba162ad9ad691c:9a98d0dc@us-cdbr-iron-east-05.cleardb.net/heroku_3fc7ffd6734412f', conn_max_age=600)
