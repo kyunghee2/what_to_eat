@@ -958,6 +958,7 @@
 .p-l-248 {padding-left: 248px;}
 .p-l-249 {padding-left: 249px;}
 .p-l-250 {padding-left: 250px;}
+.p-l-300 {padding-left: 300px;}
 .p-r-0 {padding-right: 0px;}
 .p-r-1 {padding-right: 1px;}
 .p-r-2 {padding-right: 2px;}
@@ -1209,6 +1210,7 @@
 .p-r-248 {padding-right: 248px;}
 .p-r-249 {padding-right: 249px;}
 .p-r-250 {padding-right: 250px;}
+.p-r-300 {padding-right: 300px;}
 
 /*[ MARGIN ]
 ///////////////////////////////////////////////////////////
@@ -1967,6 +1969,7 @@
 .m-l-248 {margin-left: 248px;}
 .m-l-249 {margin-left: 249px;}
 .m-l-250 {margin-left: 250px;}
+.m-l-350 {margin-left: 350px;}
 .m-r-0 {margin-right: 0px;}
 .m-r-1 {margin-right: 1px;}
 .m-r-2 {margin-right: 2px;}
@@ -3367,6 +3370,20 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	color: #666666;
 }
 
+.txt37 {
+	font-family: 'Jua', sans-serif;
+	font-size: 32px;
+	line-height: 1.8;
+	color: #333333;
+}
+
+.txt_rating {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 18px;
+	color: #fc5000;
+	line-height: 1.7;
+}
 
 /*[ Color ]
 -----------------------------------------------------------
@@ -3388,6 +3405,8 @@ SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
 -----------------------------------------------------------
 */
 .m-10 {margin: 10px;}
+
+.m-50 {margin: 50px;}
 
 .m-l--6 {margin-left: -6px;}
 

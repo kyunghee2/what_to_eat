@@ -19,12 +19,12 @@
 					<p class="t-center m-b-22 size3 m-l-r-auto">
 						오늘 점심으로 뭐가 좋을까? 란 고민을 위해 <b>환상의 점심을 소개할게요</b>
 					</p>
-					<form name="searchForm" class="mb-4" action="{% url 'restaurant:search' %}" required
+					<form name="searchForm" class="mb-4 p-l-25" action="{% url 'restaurant:search' %}" required
 						onsubmit="return checkBlank()">
 						<div class="form-row justify-content-end">
 							<!-- Search -->
-							<div class="search-sidebar2 size12 bo2 pos-relative">
-								<input class="input-search-sidebar2 txt10 p-l-20 p-r-55" type="text" name="search"
+							<div class="search-sidebar2 size12 bo2 pos-relative ">
+								<input class="input-search-sidebar2 txt10 p-l-25 p-r-55" type="text" name="search"
 									placeholder="Search ( 먹고싶은 메뉴 or 한식, 중식, 일식, 양식, 분식) ">
 								<button class="btn-search-sidebar2 flex-c-m ti-search trans-0-4" type="submit"></button>
 							</div>
@@ -48,7 +48,7 @@
 
 	<div class="content-intro bg-white p-b-50">
 		<div class="container">
-			<h5 style="text-decoration: underline; font-size: x-large; font-weight: bold">몇 명이서 먹나요?</h5>
+			<h5 style="font-size: x-large; font-weight: bold" class="txt37">몇 명이서 먹나요?</h5>
 			<div class="row">
 
 				<div class="col-md-4 p-t-30 index-columns">
@@ -100,7 +100,7 @@
 			</div>
 			<div class="content-intro bg-white p-t-77 p-b-50">
 				<div class="container">
-					<h5 style="font-size: x-large; text-decoration: underline; font-weight: bold;">우리의 추천 맛집을 소개할게요!</h5>
+					<h5 style="font-size: x-large;  font-weight: bold;" class="txt37">우리의 추천 맛집을 소개할게요!</h5>
 					<div class="row">
 						{% for restaurant in restaurants %}
 						<div class="col-md-4 p-t-30">
@@ -109,15 +109,15 @@
 								<div class="blo1">
 									<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
 										{% if restaurant.img_path %}
-										<img src="{{restaurant.img_path.url}}" class="rounded card-img-top" style="height:10rem;">
+										<img src="{{restaurant.img_path.url}}" class="rounded card-img-top" style="height:15rem;">
 										{% else %}
-										<img src="{% static 'images/no-image.png' %}" class="rounded card-img-top" style="height:10rem;">
+										<img src="{% static 'images/no-image.png' %}" class="rounded card-img-top" style="height:15rem;">
 										{% endif %}
 									</div>
 
 									<div class="wrap-text-blo1 p-t-35">
 										<h4 class="txt5 color0-hov trans-0-4 m-b-13">
-											{{restaurant.name}} 
+											{{restaurant.name}}
 											{% comment %} {{restaurant.comment_set.all()[1].score.restaurant_set.first()}} {% endcomment %}
 										</h4>
 
@@ -145,7 +145,10 @@
 	<!-- - -->
 	<div class="title-review t-center">
 		<h3 class="tit8 t-center p-x-20">
-			최근 리뷰
+			<span class="tit2 t-center">
+				Review
+			</span>
+
 		</h3>
 	</div>
 
@@ -153,25 +156,17 @@
 	<div class="wrap-slick3">
 		<div class="slick3">
 			<div class="item-slick3 item1-slick3">
-				<div class="wrap-content-slide3 p-b-50 p-t-50">
+				<div class="wrap-content-slide3 p-b-50 p-t-30">
 					<div class="container">
 						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
 							<!--<img src='{% static "images/avatar-dohyun.jpg" %}' alt="IGM-AVATAR">-->
-							<img src="{{comment1.restaurant.img_path.url}}" class="rounded card-img-top" style="height:10rem;">
+							<img src="{{comment1.restaurant.img_path.url}}" class="rounded card-img-top" style="height:15rem;">
 						</div>
 
-						<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
+						<div class="content-review m-t-33 mr-30 ml-30 animated visible-false" data-appear="fadeInUp">
 							<p class="t-center txt12 size15 m-l-r-auto">
 								{{ comment1.content }}
 							</p>
-
-							{% comment %} <div class="star-review fs-18 color0 flex-c-m m-t-12">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-							</div> {% endcomment %}
 
 							<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
 								{{ comment1.restaurant.name }}
@@ -194,14 +189,6 @@
 								{{ comment2.content }}
 							</p>
 
-							{% comment %} <div class="star-review fs-18 color0 flex-c-m m-t-12">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-							</div> {% endcomment %}
-
 							<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
 								{{ comment2.restaurant.name }}
 							</div>
@@ -215,7 +202,7 @@
 					<div class="container">
 						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
 							<img src="{{comment3.restaurant.img_path.url}}">
-						<!--<img src='{% static "images/avatar-05.jpg" %}' alt="IGM-AVATAR"> -->
+							<!--<img src='{% static "images/avatar-05.jpg" %}' alt="IGM-AVATAR"> -->
 						</div>
 
 						<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
@@ -242,7 +229,27 @@
 		</div>
 
 		<div class="wrap-slick3-dots m-t-30"></div>
+
 	</div>
+<!--챗봇설명 start -->
+	<div class="container">
+		<span>
+			<h1 style="font-size:x-large; font-weight:bold" class="txt37">How to use Chatbot</h1>
+		</span>
+		<p class="txt4 m-l-10">뭐 먹을까? 서비스는 Telegram 기반으로 이루어집니다.</p>
+		<p class="txt4 m-l-10">Telegram App을 통해 점심시간에 맛집을 추천하고 맛집검색 서비스를 해드립니다.</p>
+		<div class="row justify-content-center align-items-center">
+			<div class="card border-light m-b-3 m-r-3" style="width:40rem;">
+				<img class="card-img-top" src="{% static "images/how_to_use_chatbot/how_to_use_chatbot_search.png" %}"
+					alt="how_to_use_chatbot_1">
+				<img class="card-img-top" src="{% static "images/how_to_use_chatbot/how_to_use_chatbot_startClick.png" %}"
+					alt="how_to_use_chatbot_2">
+				<img class="card-img-top" src="{% static "images/how_to_use_chatbot/how_to_use_chatbot_start.png" %}"
+					alt="how_to_use_chatbot_3">
+			</div>
+		</div>
+	</div>
+<!--챗봇설명 end -->
 </section>
 {% endblock body %}
 

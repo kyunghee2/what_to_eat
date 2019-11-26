@@ -7,7 +7,7 @@ from django.views.decorators.http import require_POST
 from django.http import JsonResponse, HttpResponseBadRequest
 from .models import Restaurant, Comment
 import datetime
-# import csv
+import csv
 
 
 # Create your views here.
@@ -55,12 +55,30 @@ def detail(request, restaurant_pk):
         item.append((t[t.find("(")+1:t.find(")")])+"원")
         menu.append(item)
 
+    commentlist = []
+    starlist =[]
     comments = Comment.objects.filter(restaurant=restaurant)
-    
+    for comment in comments:
+        commentlist.append(comment.score)
+    print(commentlist) #3.5
+    for comment in commentlist:
+        emptystar = int((5.0- comment)//1)
+        fullstar = int(comment//1)
+        if comment%1 != 0:
+            halfstar = 1
+        else:
+            halfstar = 0
+        starlist.append([fullstar, halfstar, emptystar ])
+        print(starlist)
+
+        # print(5.0- comment) 
+
+
     context = {
         'restaurant':restaurant,
         'menu': menu,
         'comments': comments,
+        'commentlist': zip(comments, starlist),
         'month': datetime.datetime.today().month,
         'day': datetime.datetime.today().day
     }    
@@ -85,22 +103,24 @@ def people(request, people):
     }
     return render(request, 'restaurant/search.html', context)
 
-# def csvfilesave(request):
-#     with open('whattoeat_db.csv', newline='', encoding='UTF8') as csvfile:
-#         reader = csv.DictReader(csvfile)
+def csvfilesave(request):
+    with open('whattoeat_db.csv', newline='', encoding='UTF8') as csvfile:
+        reader = csv.DictReader(csvfile)
 
-#         for row in reader:
-#             #print('>>>>>')
-#             #print(row)
-#             name = row['\ufeffname']
-#             r_type = row['r_type']
-#             main_menu= row['main_menu']
-#             addr=row['addr']
-#             content=row['content']
+        for row in reader:
+            print('>>>>>')
+            print(row)
+            name = row['name']
+            r_type = row['r_type']
+            main_menu= row['main_menu']
+            addr=row['addr']
+            content=row['content']
+            img_path=row['img_path']
+            people=row['people']
 
-#             rest = Restaurant(name=name,r_type=r_type,main_menu=main_menu,addr=addr,content=content)
-#             rest.save()
+            rest = Restaurant(name=name,r_type=r_type,main_menu=main_menu,addr=addr,content=content)
+            rest.save()
 
-#     return render(request,'restaurant/index.html') 
+    return render(request,'restaurant/index.html') 
 
 

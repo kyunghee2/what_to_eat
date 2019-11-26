@@ -1,22 +1,25 @@
 {% load static %}
+{% load my_filters %}
 
-<div class="card mr-4 mb-4 p-2">
+<div class="card mr-4 mb-4 ">
   <div class="card-body">
     <div class="row" style="color: #fc5000;">
-      <div class="col-9" >
-        <span style="font-size: x-large; text-decoration: underline;">{{ comment.user }}</span>
-        <span>({{ comment.score }})</span>
+      <div class="col-9 m-b-10" >
+        <span style="font-size: x-large;" class="p-b-10">{{ comment.user }}</span>        
       </div>
-        
-      	<fieldset class="rating">
-				
-        <label class="full" for="star5"	title="Awesome - 5 stars"></label>
-        <label class="full" for="star5"	title="Awesome - 5 stars"></label>
-        <label class="full" for="star5"	title="Awesome - 5 stars"></label>
-        <label class="full" for="star5"	title="Awesome - 5 stars"></label>
-        <label class="full" for="star5"	title="Awesome - 5 stars"></label>
-				
-          </fieldset>
+      <div class ="m-t-7">
+        {% for i  in starlist.0|times %}
+        <img src="{% static 'images/icons/fullstar.png' %}" alt = 'fullstar' width="20px" height="20px" class = "m-r-5">    
+        {% endfor %}
+        {% for i  in starlist.1|times %}
+        <img src="{% static 'images/icons/halfstar.png' %}" alt = 'halfstar'width="20px" height="20px" class = "m-r-5">    
+        {% endfor %}  
+        {% for i  in starlist.2|times %}
+        <img src="{% static 'images/icons/emptystar.png' %}" alt = 'emptystar'width="20px" height="20px" class = "m-r-5">    
+        {% endfor %}      
+      <span>({{ comment.score }})</span>
+    </div>
+
       <div class="col-3" style="font-size: small">
         {% if comment.created_at.month == month and comment.created_at.day == day %}
         {{ comment.created_at|date:"G시 i분" }}
