@@ -93,17 +93,22 @@ def telegram_chatbot(request,token_in):
                 r_type = arr[1]
                 #restaurants = Restaurant.objects.filter(r_type=r_type)
                 restaurants = Restaurant.objects.filter(Q(name__contains=r_type) | Q(r_type__contains=r_type) | Q(addr__contains=r_type) | Q(main_menu__contains=r_type))
-                sel_obj = random.choice(restaurants)
+                if restaurants.count() > 0 :
+                    sel_obj = random.choice(restaurants)
 
-                sendtext = " [{0}] 음식점 추천해드립니다.♡ \n\n"
-                sendtext += "메인메뉴: {1} \n"
-                sendtext += "주소: {2} "
-                sendtext += "(<a href='https://map.kakao.com/?q={3}'>길찾기 바로가기</a>)\n"
-                sendtext += "그외 메뉴(가격):\n"
-                sendtext += "<pre>{4}</pre>"
-                sendtext = sendtext.format(sel_obj.name,sel_obj.main_menu, sel_obj.addr, sel_obj.addr, sel_obj.content)
+                    sendtext = " [{0}] 음식점 추천해드립니다.♡ \n\n"
+                    sendtext += "메인메뉴: {1} \n"
+                    sendtext += "주소: {2} "
+                    sendtext += "(<a href='https://map.kakao.com/?q={3}'>길찾기 바로가기</a>)\n"
+                    sendtext += "그외 메뉴(가격):\n"
+                    sendtext += "<pre>{4}</pre>"
+                    sendtext = sendtext.format(sel_obj.name,sel_obj.main_menu, sel_obj.addr, sel_obj.addr, sel_obj.content)
+                    bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
+                else:
+                    sendtext = "데이터가 없네요\n"
+                    sendtext += "다른 조건으로 다시 조회 해주세요 ex) /맛집 한식"
+                    bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
 
-                bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
         elif '/알림설정' in text:
             telegrams = Telegram.objects.filter(chat_id=chat_id)                     
             if telegrams.count() == 0 :
