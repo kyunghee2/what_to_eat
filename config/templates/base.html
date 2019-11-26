@@ -3,99 +3,113 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 	<title>WHATOEAT</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="{% static "images/icons/wte_favicon_non_bg.png" %}"/>
-	
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static "images/icons/wte_favicon_non_bg.png" %}" />
+
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "fonts/themify/themify-icons.css" %}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "vendor/animate/animate.css" %}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "vendor/css-hamburgers/hamburgers.min.css" %}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "vendor/animsition/css/animsition.min.css" %}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "vendor/select2/select2.min.css" %}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css" %}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "vendor/slick/slick.css" %}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "vendor/lightbox2/css/lightbox.min.css" %}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "css/whattoeat.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "css/wte_star_rating.css" %}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>뭐먹을까</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>뭐먹을까</title>
 
-  
-{% bootstrap_css %}
- <link rel="shortcut icon" href="{% static 'restaurant/favicon/favicon.ico' %}" type="image/x-icon" >
-<!-- FontAwesome -->
-<script src="https://kit.fontawesome.com/a84f15c24e.js" crossorigin="anonymous"></script>
+
+	{% bootstrap_css %}
+	<link rel="shortcut icon" href="{% static 'restaurant/favicon/favicon.ico' %}" type="image/x-icon">
+	<!-- FontAwesome -->
+	<script src="https://kit.fontawesome.com/a84f15c24e.js" crossorigin="anonymous"></script>
 </head>
 
 
 
 
 <body class="animsition">
-  {% include '_nav.html' %}
-  <div class="container" >
-   
-    {% block body %}
-    {% endblock body %}
-  </div>
+	{% include '_nav.html' %}
+	<div class="container">
+
+		{% block body %}
+		{% endblock body %}
+	</div>
 	{% include '_footer.html' %}
-{% bootstrap_javascript jquery='full' %}
-<!--===============================================================================================-->
+	{% bootstrap_javascript jquery='full' %}
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{% static "vendor/animsition/js/animsition.min.js" %}"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{% static "vendor/bootstrap/js/popper.js" %}"></script>
 	<script type="text/javascript" src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{% static "vendor/select2/select2.min.js" %}"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{% static "vendor/daterangepicker/moment.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "vendor/daterangepicker/daterangepicker.js" %}"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{% static "vendor/slick/slick.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/slick-custom.js" %}"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{% static "vendor/parallax100/parallax100.js" %}"></script>
 	<script type="text/javascript">
-        $('.parallax100').parallax100();
+		$('.parallax100').parallax100();
 	</script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{% static "vendor/countdowntime/countdowntime.js" %}"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{% static "vendor/lightbox2/js/lightbox.min.js" %}"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'code.jquery.com/jquery-latest.js' %}"></script>
+	<!--===============================================================================================-->
+
 	<script src="{% static "js/main.js" %}"></script>
 	<script>
 		function checkBlank() {
 			var x = document.forms["searchForm"]["search"].value;
-			if(x == "") {
+			if (x == "") {
 				alert("검색어를 입력해주세요");
 				return false;
 			}
 		}
+
+		function fnMove() {
+			var offset = $("#how_to_use_chatbot").offset();
+			$('html, body').animate({
+				scrollTop: offset.top
+			}, 400);
+		}
+
 	</script>
+	
 </body>
+
 </html>
