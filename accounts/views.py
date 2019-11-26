@@ -104,9 +104,9 @@ def profile(request, username):
 
         print(comments)
     
-    print('야야야야ㅑ야양ㅇ야')
-    print(starlist)
-    print(comments)
+    # print('야야야야ㅑ야양ㅇ야')
+    # print(starlist)
+    # print(comments)
 
     context = {
         'person': person ,
