@@ -4,30 +4,31 @@
 
 {% block body %}
 <section class="section-welcome p-t-120 p-b-105">
-		<div class="container">
-      <div class="row">
-          {% if request.resolver_match.url_name == 'signup' %}
-          <h1>회원가입</h1>
-          {% elif request.resolver_match.url_name == 'login' %}
-          <h1>로그인</h1>
-          {% elif request.resolver_match.url_name == 'update' %}
-          <span>
-          <h1>회원정보변경</h1>
-          <br>
-          <img class="rounded mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=100" alt="">
-          </span>
-          {% else %}
-          <h1>비밀번호변경</h1>
-          {% endif %}
-      </div>
-			<div class="row">
-        <form action="" method="POST">
+  <div class="container">
+    <div class="row">
+      {% if request.resolver_match.url_name == 'signup' %}
+      <h1>회원가입</h1>
+      {% elif request.resolver_match.url_name == 'login' %}
+      {% comment %} <h1>로그인</h1> {% endcomment %}
+      {% include 'accounts/login.html' %}
+      {% elif request.resolver_match.url_name == 'update' %}
+      <span>
+        <h1>회원정보변경</h1>
+        <br>
+        <img class="rounded mr-2" src="https://s.gravatar.com/avatar/{{ user.email|makemd5 }}?s=100" alt="">
+      </span>
+      {% else %}
+      <h1>비밀번호변경</h1>
+      {% endif %}
+    </div>
+    <div class="row">
+      <form action="" method="POST">
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons submit='확인' reset="초기화" %}{% endbuttons %}
-        </form>
-      </div>
+      </form>
     </div>
+  </div>
 </section>
 
 {% endblock body %}
