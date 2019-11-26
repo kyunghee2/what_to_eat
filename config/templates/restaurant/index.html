@@ -117,7 +117,7 @@
 
 									<div class="wrap-text-blo1 p-t-35">
 										<h4 class="txt5 color0-hov trans-0-4 m-b-13">
-											{{restaurant.name}} 
+											{{restaurant.name}}
 											{% comment %} {{restaurant.comment_set.all()[1].score.restaurant_set.first()}} {% endcomment %}
 										</h4>
 
@@ -218,7 +218,7 @@
 					<div class="container">
 						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
 							<img src="{{comment3.restaurant.img_path.url}}">
-						<!--<img src='{% static "images/avatar-05.jpg" %}' alt="IGM-AVATAR"> -->
+							<!--<img src='{% static "images/avatar-05.jpg" %}' alt="IGM-AVATAR"> -->
 						</div>
 
 						<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
@@ -245,6 +245,25 @@
 		</div>
 
 		<div class="wrap-slick3-dots m-t-30"></div>
+
+	</div>
+
+	<div class="container">
+		<span>
+			<h1>How to use Chatbot</h1>
+		</span>
+		<p>뭐 먹을까? 서비스는 Telegram 기반으로 이루어집니다.</p>
+		<p>Telegram App을 통해 점심시간에 맛집을 추천하고 맛집검색 서비스를 해드립니다.</p>
+		<div class="row">
+			<div class="card border-light m-b-3 m-r-3" style="width: 24rem;">
+				<img class="card-img-top" src="{% static "images/how_to_use_chatbot/how_to_use_chatbot_search.png" %}"
+					alt="how_to_use_chatbot_1">
+				<img class="card-img-top" src="{% static "images/how_to_use_chatbot/how_to_use_chatbot_startClick.png" %}"
+					alt="how_to_use_chatbot_2">
+				<img class="card-img-top" src="{% static "images/how_to_use_chatbot/how_to_use_chatbot_start.png" %}"
+					alt="how_to_use_chatbot_3">
+			</div>
+		</div>
 	</div>
 </section>
 {% endblock body %}
