@@ -37,6 +37,9 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 /*[ FONT ]
 ///////////////////////////////////////////////////////////
 */
+
+@import url('https://fonts.googleapis.com/css?family=Jua&display=swap');
+
 @import url('https://fonts.googleapis.com/css?family=Gothic+A1|Noto+Sans+KR:300,400|Noto+Serif+KR&display=swap&subset=korean');
 @import url('https://fonts.googleapis.com/css?family=Gothic+A1|Noto+Sans+KR:300,400&display=swap&subset=korean');
 
@@ -140,10 +143,11 @@ a:hover {
 }
 
 /* ------------------------------------ */
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h5,h4,h6 {
   margin: 0px;
   
 }
+
 
 p {
 	font-family: Montserrat;
