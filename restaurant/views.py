@@ -7,7 +7,7 @@ from django.views.decorators.http import require_POST
 from django.http import JsonResponse, HttpResponseBadRequest
 from .models import Restaurant, Comment
 import datetime
-# import csv
+import csv
 
 
 # Create your views here.
