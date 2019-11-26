@@ -10,6 +10,7 @@ from django.views.decorators.http import require_POST
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import get_user_model
 
+
 def signup(request):
     if request.user.is_authenticated:
         return redirect('restaurant:index')
@@ -81,5 +82,35 @@ def delete(request):
 #프로필
 def profile(request, username):
     person = get_object_or_404(get_user_model(),username=username)
-    context = {'person': person}
-    return render(request, 'accounts/profile.html',context)
+
+    commentlist = []
+    starlist =[]
+    # comments = Comment.objects.filter(restaurant=restaurant)
+    # print(dir(person))
+    comments = person.comment_set.all()
+
+    for comment in comments:
+        commentlist.append(comment.score)
+    print(commentlist) #3.5
+    for comment in commentlist:
+        emptystar = int((5.0- comment)//1)
+        fullstar = int(comment//1)
+        if comment%1 != 0:
+            halfstar = 1
+        else:
+            halfstar = 0
+        starlist.append([fullstar, halfstar, emptystar ])
+        print(starlist)
+
+        print(comments)
+    
+    # print('야야야야ㅑ야양ㅇ야')
+    # print(starlist)
+    # print(comments)
+
+    context = {
+        'person': person ,
+        'commentlist': zip(comments, starlist) ,
+        }
+        
+    return render(request, 'accounts/profile.html', context)

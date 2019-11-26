@@ -3369,6 +3369,13 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	color: #666666;
 }
 
+.txt_rating {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 18px;
+	color: #fc5000;
+	line-height: 1.7;
+}
 
 /*[ Color ]
 -----------------------------------------------------------
