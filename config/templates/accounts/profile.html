@@ -2,41 +2,36 @@
 
 {% block body %}
 <section class="section-welcome p-t-120 p-b-105">
-		<div class="container">
-        <div class="row">
-        <span><h1>마이페이지</h1><span>
-        <br>
-        <span><h1>{{person.username}}님의 Profile</h1><span>
-        {% for article in person.article_set.all %}
-          <div class="col-12 col-md-6 mb-3">
+  <div class="container">
+    <span>
+      <h1 style="text-decoration: underline; font-weight:bold;">마이페이지</h1><span>
+        <div>
+          <h3 class="p-b-105">{{user.username}}님의 방문 내역</h3>
+          <div>
+            {% for comment in user.comment_set.all %}
             <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">{{article.title}}</h5>
-                <p class="card-text">        
-                {{article.like_users.all|length}}명이 이 글을 좋아합니다.<br>
-                {{article.created_at}}
-                </p>
-                <a href="{% url 'articles:detail' article.pk %}" class="btn btn-primary">상세보기</a>
-              </div>
+              <div class="row">
+                <div class="col-9">
+                  <div class="card-title">
+                    {{ comment.restaurant.name }}
+                  </div>
+                  <div>
+                    {{ comment.content }}
+                  </div>
+                </div>
+                <div class="col-3" style="text-align: center;">
+                  {{ comment.score }}
+                </div>
+                {% comment %} <div class="col-9" style="color: #fc5000; font-size:x-large;">
+                  {{comment.restaurant.name}}
+                </div>
+                <div class="col-3">
+                  방문 점수: {{ comment.score }}</div>
+                </div>
+                <div class="row card-body">
+                  {{ comment.content }}
+                </div> {% endcomment %}
             </div>
-          </div>
-        {% endfor %}
-        </div>
-        <br>
-        <div class="row">
-        <h3>{{person.username}}님이 작성한 댓글</h3>
-        {% for comment in person.comment_set.all %}
-        <div class="col-12 col-md-6 mb-3">
-          <div class="card">
-            <div class="card-body">
-              {{comment.content}}<b>
-              <small>{{comment.created_at|date:"SHORT_DATETIME_FORMAT"}}</small>
-              <a href="{% url 'articles:detail' comment.article.pk %}" class="btn-primary">게시글 확인</a>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-        </div>
-      </div>
+            {% endfor %}
 </section>
 {% endblock body %}

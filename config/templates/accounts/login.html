@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- Include the above in your HEAD tag -->
+
+{% block body %}
+<section class="section-welcome p-t-120 p-b-105">
+    <div class="container">
+        <div class="card" style="width: 25rem;">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="m-l-110" src="{% static 'images/icons/wte_image.png'%}"
+                style="width:40%; height:40%;"/>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons submit='확인' reset="초기화" %}{% endbuttons %}
+
+                {% comment %} <input type="UserName" id="inputUsername" class="form-control" placeholder="Username"
+                    required autofocus>
+                <br>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <br> {% endcomment %}
+                {% comment %} <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div> {% endcomment %}
+                {% comment %} <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign
+                    in</button> {% endcomment %}
+            </form>
+            {% comment %} <a href="#" class="forgot-password">
+                Forgot the password?
+            </a> {% endcomment %}
+        </div>
+    </div>
+</section>
+{% endblock body %}

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fxfugd7f$(!os0yrnogui$xfh@=*(6b!(0&v(k=y5&wag4zq04'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -87,20 +88,21 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-SILENCED_SYSTEM_CHECKS = [
-    'django_mysql.W002',
-]
-DATABASES = {
-    'default': {     
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'whattoeat',
-        'OPTIONS': {            
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
-            'read_default_file': os.path.join(BASE_DIR, 'mydb.cnf'),
-        },
-    }
-}
+## 개발DB
+# SILENCED_SYSTEM_CHECKS = [
+#     'django_mysql.W002',
+# ]
+# DATABASES = {
+#     'default': {     
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'whattoeat',
+#         'OPTIONS': {            
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#             'charset': 'utf8mb4',
+#             'read_default_file': os.path.join(BASE_DIR, 'mydb.cnf'),
+#         },
+#     }
+# }
 
 
 # Password validation
@@ -141,7 +143,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 #기본값: auth.User
 AUTH_USER_MODEL = 'accounts.User'
@@ -156,3 +158,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # CRONJOBS = [
 #     ('*/1 * * * *', 'chatbot.cron.my_cron_job')
 # ]
+
+#heroku settings
+import django_heroku
+import dj_database_url
+django_heroku.settings(locals())
+DATABASES['default'] = dj_database_url.parse('mysql://ba162ad9ad691c:9a98d0dc@us-cdbr-iron-east-05.cleardb.net/heroku_3fc7ffd6734412f', conn_max_age=1000)
