@@ -110,11 +110,17 @@ def telegram_chatbot(request,token_in):
                 telegram = Telegram(chat_id=chat_id)
                 telegram.save()
 
+                sendtext ="알림이 설정되었습니다"
+                bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
+
         elif '/알림해제' in text:
             telegrams = Telegram.objects.filter(chat_id=chat_id)                     
             if telegrams.count() > 0 :
                 telegram = Telegram.objects.get(chat_id=chat_id)
                 telegram.delete()
+
+                sendtext ="알림이 해제되었습니다"
+                bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
         else:
             pass
             # bot.send_photo(chat_id=chat_id, photo='https://telegram.org/img/t_logo.png')
