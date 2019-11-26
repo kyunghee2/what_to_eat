@@ -13,7 +13,10 @@ import datetime
 # Create your views here.
 def index(request):
     restaurants = Restaurant.objects.order_by('?')[0:3]
-    comments = Comment.objects.all().order_by('-created_at')[0:3]
+    if Comment.objects.count() > 2:
+        comments = Comment.objects.all().order_by('-created_at')[0:3]
+    else:
+        comments = {None, None, None}
     comment1 = comments[0]
     comment2 = comments[1]
     comment3 = comments[2]
