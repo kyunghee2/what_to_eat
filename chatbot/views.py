@@ -92,7 +92,7 @@ def telegram_chatbot(request,token_in):
             if len(arr) >= 1:
                 r_type = arr[1]
                 #restaurants = Restaurant.objects.filter(r_type=r_type)
-                restaurants = Restaurant.objects.filter(Q(name__contains=r_type) | Q(r_type__contains=r_type) | Q(addr__contains=r_type))
+                restaurants = Restaurant.objects.filter(Q(name__contains=r_type) | Q(r_type__contains=r_type) | Q(addr__contains=r_type) | Q(main_menu__contains=r_type))
                 sel_obj = random.choice(restaurants)
 
                 sendtext = " [{0}] 음식점 추천해드립니다.♡ \n\n"
@@ -112,6 +112,9 @@ def telegram_chatbot(request,token_in):
 
                 sendtext ="알림이 설정되었습니다"
                 bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
+            else:
+                sendtext ="알림이 이미 설정되어있습니다"
+                bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
 
         elif '/알림해제' in text:
             telegrams = Telegram.objects.filter(chat_id=chat_id)                     
@@ -121,6 +124,7 @@ def telegram_chatbot(request,token_in):
 
                 sendtext ="알림이 해제되었습니다"
                 bot.send_message(chat_id=chat_id, text=sendtext,parse_mode='HTML')
+            
         else:
             pass
             # bot.send_photo(chat_id=chat_id, photo='https://telegram.org/img/t_logo.png')
