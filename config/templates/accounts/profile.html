@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load my_filters %}
 
 {% block body %}
 <section class="section-welcome p-t-120 p-b-105">
@@ -44,10 +46,22 @@
         </div>
       </div>
       <div class="card-footer bg-transparent border-light txt_rating">
-        {{ comment.score }}
+        <div class="m-t-7">
+        {% for comment , starlist in commentlist %}
+          {% for i in starlist.0|times %}
+          <img src="{% static 'images/icons/fullstar.png' %}" alt='fullstar' width="20px" height="20px" class="m-r-5">
+          {% endfor %}
+          {% for i in starlist.1|times %}
+          <img src="{% static 'images/icons/halfstar.png' %}" alt='halfstar' width="20px" height="20px" class="m-r-5">
+          {% endfor %}
+          {% for i in starlist.2|times %}
+          <img src="{% static 'images/icons/emptystar.png' %}" alt='emptystar' width="20px" height="20px" class="m-r-5">
+          {% endfor %}
+          <span>({{ comment.score }})</span>
+        {% endfor %}
+        </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
 </section>
 {% endblock body %}
