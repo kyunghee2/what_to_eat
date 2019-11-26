@@ -9,31 +9,33 @@
 {% block body %}
 <section class="section-welcome p-t-120 p-b-105">
     <div class="container">
-        <div class="card" style="width: 25rem;">
+        <div class="card m-t-50 m-l-350" style="width: 25rem; padding:15px;">
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-            <img id="profile-img" class="m-l-140" src="{% static 'images/icons/wte_image.png'%}"
-                style="width:30%; height:30%;"/>
-            <form action="" method="POST">
-                {% csrf_token %}
-                {% bootstrap_form form %}
-                {% buttons submit='확인' reset="초기화" %}{% endbuttons %}
+            <img id="profile-img" class="m-l-120" src="{% static 'images/icons/wte_image.png'%}"
+                style="width:30%; height:30%;" />
+                <div class="row" style="margin-left:0px;margin-right:0px;">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    {% buttons submit='확인' reset="초기화" %}{% endbuttons %}
 
-                {% comment %} <input type="UserName" id="inputUsername" class="form-control" placeholder="Username"
-                    required autofocus>
-                <br>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <br> {% endcomment %}
-                {% comment %} <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div> {% endcomment %}
-                {% comment %} <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign
-                    in</button> {% endcomment %}
-            </form>
-            {% comment %} <a href="#" class="forgot-password">
-                Forgot the password?
-            </a> {% endcomment %}
+                    {% comment %} <input type="UserName" id="inputUsername" class="form-control" placeholder="Username"
+                        required autofocus>
+                    <br>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                    <br> {% endcomment %}
+                    {% comment %} <div id="remember" class="checkbox">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div> {% endcomment %}
+                    {% comment %} <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign
+                        in</button> {% endcomment %}
+                </form>
+                {% comment %} <a href="#" class="forgot-password">
+                    Forgot the password?
+                </a> {% endcomment %}
+            </div>
         </div>
     </div>
 </section>
