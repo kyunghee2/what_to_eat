@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse, HttpResponseBadRequest
 from .models import Restaurant, Comment
-from .forms import CommentForm
 import datetime
 # import csv
 
@@ -14,10 +13,17 @@ import datetime
 # Create your views here.
 def index(request):
     restaurants = Restaurant.objects.order_by('?')[0:3]
+    comments = Comment.objects.all().order_by('-created_at')[0:3]
+    comment1 = comments[0]
+    comment2 = comments[1]
+    comment3 = comments[2]
     context = {
-        'restaurants': restaurants
+        'restaurants': restaurants,
+        'comment1': comment1,
+        'comment2': comment2,
+        'comment3': comment3
     }
-    return render(request, 'restaurant/index.html', context )
+    return render(request, 'restaurant/index.html', context)
 
 def search(request):
     search = request.GET.get('search')

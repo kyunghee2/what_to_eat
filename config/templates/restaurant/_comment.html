@@ -7,11 +7,21 @@
         <span style="font-size: x-large; text-decoration: underline;">{{ comment.user }}</span>
         <span>({{ comment.score }})</span>
       </div>
+        
+      	<fieldset class="rating">
+				
+        <label class="full" for="star5"	title="Awesome - 5 stars"></label>
+        <label class="full" for="star5"	title="Awesome - 5 stars"></label>
+        <label class="full" for="star5"	title="Awesome - 5 stars"></label>
+        <label class="full" for="star5"	title="Awesome - 5 stars"></label>
+        <label class="full" for="star5"	title="Awesome - 5 stars"></label>
+				
+          </fieldset>
       <div class="col-3" style="font-size: small">
         {% if comment.created_at.month == month and comment.created_at.day == day %}
         {{ comment.created_at|date:"G시 i분" }}
         {% else %}
-        {{ comment.created_at|date:"M d일 G시 i분" }}
+        {{ comment.created_at|date:"M d일" }}
         {% endif %}
       </div>
     </div>

@@ -6,7 +6,7 @@
 
 <!-- Welcome -->
 <section class="p-t-140 p-b-50">
-	<div class="container section-welcome bg1-pattern p-t-30">
+	<div class="container section-welcome bg1-pattern p-t-25 p-b-25">
 		<div class="row mt-1">
 			<div class="col-md-6 p-t-45">
 				<div class="wrap-text-welcome t-center">
@@ -25,7 +25,7 @@
 							<!-- Search -->
 							<div class="search-sidebar2 size12 bo2 pos-relative">
 								<input class="input-search-sidebar2 txt10 p-l-20 p-r-55" type="text" name="search"
-									placeholder="Search">
+									placeholder="Search ( 먹고싶은 메뉴 or 한식, 중식, 일식, 양식, 분식) ">
 								<button class="btn-search-sidebar2 flex-c-m ti-search trans-0-4" type="submit"></button>
 							</div>
 						</div>
@@ -48,7 +48,7 @@
 
 	<div class="content-intro bg-white p-b-50">
 		<div class="container">
-			<h5>몇 명이서 먹나요?</h5>
+			<h5 style="text-decoration: underline; font-size: x-large; font-weight: bold">몇 명이서 먹나요?</h5>
 			<div class="row">
 
 				<div class="col-md-4 p-t-30 index-columns">
@@ -98,9 +98,9 @@
 					</a>
 				</div>
 			</div>
-			<div class="content-intro bg-white p-t-77 p-b-133">
+			<div class="content-intro bg-white p-t-77 p-b-50">
 				<div class="container">
-					<h5>우리의 추천 맛집을 소개할게요</h5>
+					<h5 style="font-size: x-large; text-decoration: underline; font-weight: bold;">우리의 추천 맛집을 소개할게요!</h5>
 					<div class="row">
 						{% for restaurant in restaurants %}
 						<div class="col-md-4 p-t-30">
@@ -109,21 +109,26 @@
 								<div class="blo1">
 									<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
 										{% if restaurant.img_path %}
-										<img src="{{restaurant.img_path.url}}" class="rounded card-img-top"
-											style="height:10rem;">
+										<img src="{{restaurant.img_path.url}}" class="rounded card-img-top" style="height:10rem;">
 										{% else %}
-										<img src="{% static 'images/no-image.png' %}" class="rounded card-img-top"
-											style="height:10rem;">
+										<img src="{% static 'images/no-image.png' %}" class="rounded card-img-top" style="height:10rem;">
 										{% endif %}
 									</div>
 
 									<div class="wrap-text-blo1 p-t-35">
 										<h4 class="txt5 color0-hov trans-0-4 m-b-13">
-											{{restaurant.name}}
+											{{restaurant.name}} 
+											{% comment %} {{restaurant.comment_set.all()[1].score.restaurant_set.first()}} {% endcomment %}
 										</h4>
 
 										<p class="m-b-20">
 											추천메뉴 : {{ restaurant.main_menu }}
+											<br>
+											{% if restaurant.people != 3 %}
+											{{restaurant.people}}명이 식사하기 좋습니다.
+											{% else %}
+											{{restaurant.people}} 명 이상이 식사하기 좋습니다.
+											{% endif %}
 										</p>
 									</div>
 								</div>
@@ -138,13 +143,9 @@
 <!-- Review -->
 <section class="section-review">
 	<!-- - -->
-	<div class="title-review t-center m-b-2">
-		<span class="tit2 p-l-15 p-r-15">
-			Developer's Say
-		</span>
-
-		<h3 class="tit8 t-center p-l-20 p-r-15 p-t-3">
-			Review
+	<div class="title-review t-center">
+		<h3 class="tit8 t-center p-x-20">
+			최근 리뷰
 		</h3>
 	</div>
 
@@ -154,26 +155,26 @@
 			<div class="item-slick3 item1-slick3">
 				<div class="wrap-content-slide3 p-b-50 p-t-50">
 					<div class="container">
-						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"
-							data-appear="zoomIn">
-							<img src='{% static "images/avatar-dohyun.jpg" %}' alt="IGM-AVATAR">
+						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
+							<!--<img src='{% static "images/avatar-dohyun.jpg" %}' alt="IGM-AVATAR">-->
+							<img src="{{comment1.restaurant.img_path.url}}" class="rounded card-img-top" style="height:10rem;">
 						</div>
 
 						<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
 							<p class="t-center txt12 size15 m-l-r-auto">
-								“ 순남시래기 내 인생맛집 ㅎㅎ 니들이 전통 100년의 국밥 맛을 알아??? ”
+								{{ comment1.content }}
 							</p>
 
-							<div class="star-review fs-18 color0 flex-c-m m-t-12">
+							{% comment %} <div class="star-review fs-18 color0 flex-c-m m-t-12">
 								<i class="fa fa-star" aria-hidden="true"></i>
 								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
 								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
 								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
 								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-							</div>
+							</div> {% endcomment %}
 
 							<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
-								Dohyun gukbap is the love ˗ Dongtan
+								{{ comment1.restaurant.name }}
 							</div>
 						</div>
 					</div>
@@ -183,26 +184,26 @@
 			<div class="item-slick3 item2-slick3">
 				<div class="wrap-content-slide3 p-b-50 p-t-50">
 					<div class="container">
-						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"
-							data-appear="zoomIn">
-							<img src='{% static "images/avatar-sehwan.jpg" %}' alt="IGM-AVATAR">
+						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
+							<img src="{{comment2.restaurant.img_path.url}}">
+							<!--<img src='{% static "images/avatar-sehwan.jpg" %}' alt="IGM-AVATAR">-->
 						</div>
 
 						<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
 							<p class="t-center txt12 size15 m-l-r-auto">
-								“ 옴뇸뇸 옴뇸뇸 옴뇸뇸 ”
+								{{ comment2.content }}
 							</p>
 
-							<div class="star-review fs-18 color0 flex-c-m m-t-12">
+							{% comment %} <div class="star-review fs-18 color0 flex-c-m m-t-12">
 								<i class="fa fa-star" aria-hidden="true"></i>
 								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
 								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
 								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
 								<i class="fa fa-star p-l-1" aria-hidden="true"></i>
-							</div>
+							</div> {% endcomment %}
 
 							<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
-								Marie Simmons ˗ New York
+								{{ comment2.restaurant.name }}
 							</div>
 						</div>
 					</div>
@@ -212,16 +213,14 @@
 			<div class="item-slick3 item3-slick3">
 				<div class="wrap-content-slide3 p-b-50 p-t-50">
 					<div class="container">
-						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"
-							data-appear="zoomIn">
-							<img src='{% static "images/avatar-05.jpg" %}' alt="IGM-AVATAR">
+						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
+							<img src="{{comment3.restaurant.img_path.url}}">
+						<!--<img src='{% static "images/avatar-05.jpg" %}' alt="IGM-AVATAR"> -->
 						</div>
 
 						<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
 							<p class="t-center txt12 size15 m-l-r-auto">
-								“ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem,
-								mattis in pre-tium
-								nec, fermentum viverra dui ”
+								{{ comment3.content }}
 							</p>
 
 							<div class="star-review fs-18 color0 flex-c-m m-t-12">
@@ -233,7 +232,7 @@
 							</div>
 
 							<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
-								Marie Simmons ˗ New York
+								{{ comment3.restaurant.name }}
 							</div>
 						</div>
 					</div>
