@@ -84,8 +84,12 @@
 
 	<div class="m-b-50">
 		<h4 class="txt33 p-b-10">Comments</h4>
-		{% for comment in comments %}
+		{% for comment , starlist in commentlist %}
 		{% include 'restaurant/_comment.html' %}
+		{% comment %} {{comment.user}}
+		{{comment.created_at}}
+		{{comment}}
+		{{starlist}} {% endcomment %}
 		{% empty %}
 		{% include 'restaurant/empty.html' %}
 		{% endfor %}
