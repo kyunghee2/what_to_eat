@@ -16,8 +16,8 @@ class User(AbstractUser):
 
 class Telegram(models.Model):
     chat_id =  models.CharField(max_length=20)
-    created_at = models.DateTimeField(auto_now_add=True)
-    
+    # created_at = models.DateTimeField(auto_now_add=True)
+
         #객체 표시 형식 수정
     def __str__(self):
         return f'[{self.pk}] {self.chat_id}'
