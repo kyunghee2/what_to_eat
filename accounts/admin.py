@@ -6,6 +6,6 @@ from .models import Telegram
 admin.site.register(User, UserAdmin)
 
 class TelegramAdmin(admin.ModelAdmin):
-     list_display = ('pk','chat_id')
+     list_display = ('pk','chat_id','created_at')
 
 admin.site.register(Telegram, TelegramAdmin)
