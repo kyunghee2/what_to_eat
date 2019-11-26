@@ -3691,10 +3691,10 @@ EFFECT   EFFECT   EFFECT   EFFECT   EFFECT   EFFECT  EFFECT
 -----------------------------------------------------------
 */
 .gradient1 {
-  background: -webkit-linear-gradient(rgba(0,0,0,0.6) , rgba(0,0,0,0));
-  background: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0)); 
-  background: -moz-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0));
-  background: linear-gradient(rgba(0,0,0,0.6) , rgba(0,0,0,0));
+  background: -webkit-linear-gradient(rgba(0,0,0,0) , rgba(0,0,0,0));
+  background: -o-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)); 
+  background: -moz-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
+  background: linear-gradient(rgba(0,0,0,0) , rgba(0,0,0,0));
 }
 
 
