@@ -85,22 +85,24 @@ def people(request, people):
     }
     return render(request, 'restaurant/search.html', context)
 
-# def csvfilesave(request):
-#     with open('whattoeat_db.csv', newline='', encoding='UTF8') as csvfile:
-#         reader = csv.DictReader(csvfile)
+def csvfilesave(request):
+    with open('whattoeat_db.csv', newline='', encoding='UTF8') as csvfile:
+        reader = csv.DictReader(csvfile)
 
-#         for row in reader:
-#             #print('>>>>>')
-#             #print(row)
-#             name = row['\ufeffname']
-#             r_type = row['r_type']
-#             main_menu= row['main_menu']
-#             addr=row['addr']
-#             content=row['content']
+        for row in reader:
+            #print('>>>>>')
+            #print(row)
+            name = row['\ufeffname']
+            r_type = row['r_type']
+            main_menu= row['main_menu']
+            addr=row['addr']
+            content=row['content']
+            img_path=row['img_path']
+            people=row['people']
 
-#             rest = Restaurant(name=name,r_type=r_type,main_menu=main_menu,addr=addr,content=content)
-#             rest.save()
+            rest = Restaurant(name=name,r_type=r_type,main_menu=main_menu,addr=addr,content=content)
+            rest.save()
 
-#     return render(request,'restaurant/index.html') 
+    return render(request,'restaurant/index.html') 
 
 
