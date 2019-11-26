@@ -3370,6 +3370,13 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	color: #666666;
 }
 
+.txt37 {
+	font-family: 'Jua', sans-serif;
+	font-size: 32px;
+	line-height: 1.8;
+	color: #333333;
+}
+
 .txt_rating {
 	font-family: Montserrat;
 	font-weight: 400;

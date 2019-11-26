@@ -48,7 +48,7 @@
 
 	<div class="content-intro bg-white p-b-50">
 		<div class="container">
-			<h5 style="text-decoration: underline; font-size: x-large; font-weight: bold">몇 명이서 먹나요?</h5>
+			<h5 style="font-size: x-large; font-weight: bold" class="txt37">몇 명이서 먹나요?</h5>
 			<div class="row">
 
 				<div class="col-md-4 p-t-30 index-columns">
@@ -100,7 +100,7 @@
 			</div>
 			<div class="content-intro bg-white p-t-77 p-b-50">
 				<div class="container">
-					<h5 style="font-size: x-large; text-decoration: underline; font-weight: bold;">우리의 추천 맛집을 소개할게요!</h5>
+					<h5 style="font-size: x-large;  font-weight: bold;"  class="txt37">우리의 추천 맛집을 소개할게요!</h5>
 					<div class="row">
 						{% for restaurant in restaurants %}
 						<div class="col-md-4 p-t-30">
@@ -109,9 +109,9 @@
 								<div class="blo1">
 									<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
 										{% if restaurant.img_path %}
-										<img src="{{restaurant.img_path.url}}" class="rounded card-img-top" style="height:10rem;">
+										<img src="{{restaurant.img_path.url}}" class="rounded card-img-top" style="height:15rem;">
 										{% else %}
-										<img src="{% static 'images/no-image.png' %}" class="rounded card-img-top" style="height:10rem;">
+										<img src="{% static 'images/no-image.png' %}" class="rounded card-img-top" style="height:15rem;">
 										{% endif %}
 									</div>
 
@@ -144,8 +144,11 @@
 <section class="section-review">
 	<!-- - -->
 	<div class="title-review t-center">
-		<h3 class="tit8 t-center p-x-20">
-			최근 리뷰
+		<h3 class="tit8 t-center p-x-20"> 
+		<span class="tit2 t-center">
+						Review
+					</span>
+		
 		</h3>
 	</div>
 
@@ -153,14 +156,14 @@
 	<div class="wrap-slick3">
 		<div class="slick3">
 			<div class="item-slick3 item1-slick3">
-				<div class="wrap-content-slide3 p-b-50 p-t-50">
+				<div class="wrap-content-slide3 p-b-50 p-t-30">
 					<div class="container">
 						<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
 							<!--<img src='{% static "images/avatar-dohyun.jpg" %}' alt="IGM-AVATAR">-->
-							<img src="{{comment1.restaurant.img_path.url}}" class="rounded card-img-top" style="height:10rem;">
+							<img src="{{comment1.restaurant.img_path.url}}" class="rounded card-img-top" style="height:15rem;">
 						</div>
 
-						<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
+						<div class="content-review m-t-33 mr-30 ml-30 animated visible-false" data-appear="fadeInUp">
 							<p class="t-center txt12 size15 m-l-r-auto">
 								{{ comment1.content }}
 							</p>
