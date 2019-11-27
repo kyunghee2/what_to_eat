@@ -143,7 +143,8 @@ def telegram_chatbot(request,token_in):
 def message_create(msg_type):
     result = ''
     if msg_type == 'help':
-        result ="* 맛집검색 방법은? /맛집 한식 or /맛집 (먹고싶은 메뉴) \n"
+        result ="* 맛집검색 방법은?\n"
+        result +="  /맛집 한식 혹은 /맛집 (먹고싶은 메뉴) \n"
         result +="  (종류:한식,양식,중식,일식,분식)\n"
         result +="* 알림해제 방법은? /알림해제 \n"
         result +="* 알림설정 방법은? /알림설정 \n"
