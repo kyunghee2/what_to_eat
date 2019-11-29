@@ -26,7 +26,9 @@ def telegram_chat_schedule(request):
         telegram_users = Telegram.objects.all()
         print('>>>>>>>>>>>>>')
         print(telegram_users)
-        restaurants = Restaurant.objects.filter(r_type='한식')
+        #restaurants = Restaurant.objects.filter(r_type='한식')
+        restaurants = Restaurant.objects.all()
+                
         sel_obj = random.choice(restaurants)
 
         for user in telegram_users:     
