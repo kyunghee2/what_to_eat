@@ -21,7 +21,7 @@ $ pip install python-telegram-bot
 
 $ pip install mysql-connector
 $ pip install django-mysql
-$ pip install ./lib/mysqlclient-1.4.5-cp37-cp37m-win32.whl
+$ pip install ./lib/mysqlclient‑1.4.6‑cp38‑cp38‑win_amd64.whl
 ```
 
 #### mysqlclient 다운로드 사이트
