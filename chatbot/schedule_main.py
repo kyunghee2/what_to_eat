@@ -14,4 +14,5 @@ if week != "일" and week != "토":
     print(">>>>")
     print(r)
 else:
-    pass
+    print("주말실행안함")
+    
